@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <style>
+        html, body {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .table-th {
+            line-height: 30px;
+            text-align: center;
+            width: auto;
+            color: white;
+            font-size: 12px;
+        }
+
+        .table-td {
+            line-height: 30px;
+            text-align: center;
+            /*width: auto;*/
+            font-size: 12px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .box-one {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            color: white;
+        }
+
+        .broder-img {
+            width: 96%;
+            height: 5px;
+            margin: 0 auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(../../image/ren_index_weizhi.png);
+        }
+
+        .table-style {
+            color: white;
+            width: 96%;
+            font-size: 15px;
+            margin-left: 2%;
+            margin-right: 2%;
+            /*margin-top: 6px;*/
+            border-color: #11234F;
+        }
+
+        .text-oneline {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            word-break: break-all;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+<div class="box-one">
+
+    <table class="table-style">
+        <tr style='background-color:#0C1A38;'>
+            <td class='table-th' style='width:4%;'>序号</td>
+
+            <td class='table-th' style='width:7%;'>姓名</td>
+            <td class='table-th' style='width:4%;'>性别</td>
+            <td class='table-th' style='width:4%;'>年龄</td>
+            <td class='table-th' style='width:9%;'>入党时间</td>
+            <td class='table-th' style='width:8%;'>民族</td>
+            <td class='table-th' style='width:50%;text-align: left'>工作单位及职务</td>
+
+            <td class='table-th' style='width:16%;'>职务层次</td>
+        </tr>
+
+    </table>
+
+    <div style="width: 100%;height: 92%;overflow-y: auto">
+        <table id="message-content" border="1px" class="table-style">
+
+        </table>
+    </div>
+
+    <div class="broder-img"></div>
+</div>
+
+
+<script id="message-content-template" type="text/x-dot-template">
+
+
+    <tr class="polist" style='background-color: #0C1B3D;color:white;'>
+        <td class='table-td' style='width:4%;'>{{=it.index}}</td>
+
+        <td class='table-td' style='width:7%;' onclick="clickdetails('{{=it.ID}}')">{{=it.A0101}}</td>
+        <td class='table-td' style='width:4%;'>{{=it.A0104}}</td>
+        <td class='table-td' style='width:4%;'>{{=it.AGE}}</td>
+        <td class='table-td' style='width:9%;'>{{=it.A0140}}</td>
+        <td class='table-td' style='width:8%;'>{{=it.A0117}}</td>
+
+        <td class='table-td' style='width:50%;text-align: left' onclick="showAlert(TIP_STR,'{{=it.A0192}}')">
+            <div class="text-oneline" style='width:100%;'>{{=it.A0192}}</div>
+        </td>
+
+
+        <td class='table-td' style='width:16%;'>
+            <div class="text-oneline" style='width:100%;'>{{=it.A0172}}</div>
+        </td>
+    </tr>
+
+</script>
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/scriptabxz.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript">
+
+    var sql = null
+    var sqlone = null
+    var sqltwo = null
+    var rownum = 0;
+    var loading_flag = false;
+    var peo_arr = []
+
+
+    var picallarr = []
+    apiready = function () {
+
+        //显示加载中
+        showProgress()
+
+        sql = api.pageParam.data.sql;
+        consoledebug.log("传入sql:" + JSON.stringify(sql));
+
+        var y = 0;
+        var count = 100;
+        var num = y * count;
+
+        sqlone = sql + " limit " + count + " offset " + num + ";";
+
+        selectSql(sqlone, function (ret, err) {
+
+            for (i = 0; i < ret.data.length; i++) {
+                peo_arr.push(ret.data[i])
+                picallarr.push(ret.data[i])
+            }
+            openpiclist(peo_arr)
+        })
+
+
+
+        api.addEventListener({
+            name: 'scrolltobottom',
+            extra: {
+                threshold: 200
+            }
+        }, function (ret, err) {
+            if (!loading_flag) {
+                //加载中提示
+                showProgress()
+                loading_flag = true;
+                var count = 100;
+                var num = rownum * count;
+                //去掉字符串后的and
+                sqltwo = sql + " limit " + count + " offset " + num + ";";
+
+                selectSql(sqltwo, function (ret, err) {
+                    for (i = 0; i < ret.data.length; i++) {
+                        peo_arr.push(ret.data[i])
+                        picallarr.push(ret.data[i])
+                    }
+                    openpiclist(peo_arr)
+                })
+
+
+            }
+        })
+    };
+
+
+
+    var newsObj_arr = [];
+
+    function openpiclist(people) {
+
+        if (!people.length) {
+            hideProgress()
+            showToast("暂无更多信息", "middle");
+            return;
+        }
+
+        if (!judgeIsAnyNullStr(people)) {
+            for (var i = 0; i < people.length; i++) {
+                newsObj_arr.push(people[i]);
+                var news_obj = clone(people[i]);
+                news_obj.index = newsObj_arr.length
+
+                newpicallarr.push({ID: news_obj.ID, A0101: news_obj.A0101})
+                var interText = doT.template($("#message-content-template").text());
+                $("#message-content").append(interText(news_obj));
+            }
+            rownum++;
+            loading_flag = false;
+            peo_arr = []
+        } else {
+            showAlert(TIP_STR, "暂无信息");
+            loading_flag = true
+        }
+        hideProgress()
+    }
+
+
+    var newpicallarr = []
+
+    var picpassarr = []
+
+
+    function clickdetails(id) {
+
+
+        var position = indexOf(newpicallarr, id)
+
+        if (position < 50) {
+            position = 50
+        }
+
+        picpassarr = newpicallarr.slice(parseInt(position) - 50, parseInt(position) + 50)
+
+
+        var item = "select * , (SELECT NAME FROM DIC_RS_ZB64 WHERE CODE = RS_A01.ZGXL) ZGXL_NAME,(SELECT NAME FROM DIC_RS_GB6864 WHERE CODE = RS_A01.ZGXW) ZGXW_NAME,(SELECT NAME FROM DIC_RS_GB3304 WHERE CODE = RS_A01.A0117) A0117_NAME from rs_a01 where  ID = '" + id + "'";
+
+
+        var data = {
+            data: item,
+            value: picpassarr,
+            ID: id
+        }
+
+
+        comOpenWin('grxx_win', '../ryxx/', data, 2);
+
+//        consoledebug.log("人员详情SQL语句:" + JSON.stringify(id));
+//        var body_h = api.winHeight
+//        var body_w = api.winWidth
+//        var firstHeader = _fixStatusBar('header')
+//        api.openFrame({
+//            name: 'guc_frm',
+//            url: 'widget://html/ryxx/grxx_frm.html',
+//            rect: {
+//                x: 0,
+//                y: 0,
+//                w: "auto",
+//                h: "auto"
+//            },
+//            bgColor: 'rgba(255,0,0,0)',
+//            reload: true,
+//            pageParam: {
+//                data: item,
+//                // value: peoplelist,
+//                //  value: picallarr,
+//                value: picpassarr,
+//                ID: id
+//            }
+//        });
+        item = null
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/layoutnew.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <style>
+        html, body {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+    </style>
+</head>
+<body>
+
+<header id='header' class="aui-bar-nav-new" style="z-index: 99">
+    <div class="aui-pull-left" onclick="clickBackwin();">
+        <span class="icon iconfont icon-back">返回</span>
+    </div>
+    <span class="titlename">标题</span>
+
+    <div class="aui-pull-right"style="color: transparent ">
+        <span class="icon iconfont icon-back">占位</span>
+    </div>
+</header>
+
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+
+<script type="text/javascript">
+    //入口函数
+    apiready = function () {
+        showProgress()
+
+        $(".titlename").text(api.pageParam.data.name);
+        var header = $api.byId('header')
+        _fixStatusBar('header')
+        var headerPos = $api.offset(header)
+        headH = headerPos.h
+        api.openFrame({
+            name: 'dwpeolist_frm',
+            bgColor: '../../image/bac.png',
+            url: './dwpeolist_frm.html',
+            rect: {x: 0, y: headH, w: 'auto', h: api.winHeight - headH},
+            pageParam: {
+                data:api.pageParam.data
+            }
+        });
+    };
+
+
+
+    function clickBackwin() {
+
+        api.sendEvent({
+            name: 'cleanarr',
+            extra: {}
+        });
+
+        api.closeWin()
+    }
+
+
+</script>
+</html>

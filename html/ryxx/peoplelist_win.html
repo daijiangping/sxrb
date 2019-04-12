@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <style>
+
+        html, body {
+            background-color: rgba(0, 0, 0, 0);
+        }
+        .aui-bar-new {
+            position: relative;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            min-height: 1.5rem;
+            display: table;
+        }
+
+        .aui-bar-nav-new {
+            top: 0;
+            line-height: 1.5rem;
+            color: #BFBFE4;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 120%;
+            background-image: url(../../image/pic_win.png);
+        }
+
+        .ts-style {
+            width: auto;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            float: right;
+            font-size: 12px;
+            margin-right: 10px
+        }
+
+        .ts-style-left {
+            width: auto;
+            height: 40px;
+            line-height: 1.5rem;
+            float: left;
+            font-size: 16px;
+            margin-right: 10px
+        }
+
+
+    </style>
+</head>
+<body>
+
+<header id='header' class="aui-bar-new aui-bar-nav-new ">
+    <div class="aui-pull-left ts-style" onclick="clicktoBack();">
+        <i class="icon iconfont icon-back">返回</i>
+    </div>
+
+
+    <div class="aui-pull-left ts-style" id="city-message-content">
+
+    </div>
+
+    <!--搜索-->
+    <div class="ts-style" onclick='openSx()'>
+        <i class="icon iconfont icon-sousuo2 aui-font-size-16"></i>
+    </div>
+
+    <!--列表-->
+    <div class="ts-style" onclick='openTab()'>
+        <i id="listtype" class="icon iconfont icon-liebiao2 aui-font-size-16"></i>
+
+    </div>
+
+
+</header>
+
+<script id="city-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <div class="ts-style-left" onclick="opencitylist('{{=it[i].ID}}')">{{=it[i].NAME}}</div>
+    {{}}}
+</script>
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript">
+
+
+    var mysql,   //传入sql语句
+        city_arr,  //传入城市数组
+        citname,  //传入城市 代码号
+        pjsql,
+        id_arr;
+
+    //内容数组
+    var peoplelist = []
+
+    //个人详情左侧图片列表数组
+    var picallarr = []
+    apiready = function () {
+
+        initFrameGroup()
+        showProgress()
+
+        mysql = api.pageParam.data.mysql
+        city_arr = api.pageParam.data.citylist
+        citname = api.pageParam.data.cityname
+        pjsql = api.pageParam.data.pjsql
+
+
+        //选中状态数组
+        id_arr = api.pageParam.data.id_arr
+
+        //监听 下拉翻页
+        api.addEventListener({
+            name: 'rownum_list'
+        }, function (ret, err) {
+            consoledebug.log("rownum_list ret:" + JSON.stringify(ret));
+
+
+            var rownum = ret.value.data;         // 第几页
+            var count = 100;    //每页条数
+            var num = rownum * count;    //从多少条开始
+
+
+            isql = pjsql + " limit " + count + " offset " + num + " ";
+
+
+            consoledebug.log("页面下拉加载SQL:" + JSON.stringify(isql));
+            openlibrary(isql,1)
+        });
+
+
+        var interText = doT.template($("#city-message-content-template").text());
+        $("#city-message-content").html(interText(city_arr));
+
+
+        openlibrary(mysql)
+        consoledebug.log("搜索:" + JSON.stringify(mysql));
+
+        //监听页内搜索选择
+        api.addEventListener({
+            name: 'spl_name'
+        }, function (ret, err) {
+
+            showProgress()
+
+            consoledebug.log("spl_name ret:" + JSON.stringify(ret));
+            pjsql = ret.value.data
+            city_arr = ret.value.citylist
+
+            var rownum = 0;         // 第几页
+            var count = 100;    //每页条数
+            var num = rownum * count;    //从多少条开始
+
+
+            isql = pjsql + " order by rs_a01.aorder  limit " + count + " offset " + num + " ";
+            consoledebug.log("spl_name ret:" + JSON.stringify(isql));
+
+
+            //改变顶部城市显示
+            var interText = doT.template($("#city-message-content-template").text());
+            $("#city-message-content").html(interText(city_arr));
+
+
+            openlibrary(isql)
+        });
+
+
+
+        //监听城市更改选择
+        api.addEventListener({
+            name: 'cityspl_name'
+        }, function (ret, err) {
+
+            showProgress()
+
+            city_arr = ret.value.citylist
+            citname = ret.value.cityname
+
+            var interText = doT.template($("#city-message-content-template").text());
+            $("#city-message-content").html(interText(city_arr));
+
+
+            pjsql = ret.value.data
+
+            var rownum = 0;         // 第几页
+            var count = 100;    //每页条数
+            var num = rownum * count;    //从多少条开始
+
+
+            isql = pjsql + " order by rs_a01.aorder  limit " + count + " offset " + num + " ";
+
+            openlibrary(isql)
+            consoledebug.log("搜索:" + JSON.stringify(isql));
+        });
+
+    };
+
+
+//type 用于判断 是否是 页面内 发送事件
+    function openlibrary(mysql,type) {
+
+        selectSql(mysql, function (ret, err) {
+
+            if (ret.status) {
+                peoplelist = ret.data
+                    for (i = 0; i < peoplelist.length; i++) {
+                        picallarr.push(peoplelist[i]);
+                    }
+
+                    if(type != 1) {
+                        setTimeout(function () {
+                            //列表里搜索事件
+                            api.sendEvent({
+                                name: 'json_list',
+                                extra: {
+                                    data: peoplelist
+                                }
+                            });
+                        }, 900)
+                    }else {
+                        api.sendEvent({
+                            name: 'json_list',
+                            extra: {
+                                data: peoplelist
+                            }
+                        });
+                    }
+
+                }
+
+        })
+
+    }
+
+
+    function initFrameGroup() {
+
+        var body_h = api.winHeight
+        var firstHeader = _fixStatusBar('header')
+        consoledebug.log('initFrameGroup body_h fourHeader_h is ' + body_h + " " + firstHeader.h)
+        //打开index_frame_group
+        api.openFrameGroup({
+            name: 'people_group',
+            background: '../../image/bac.png',
+            scrollEnabled: false,
+            rect: {
+                x: 0,
+                y: firstHeader.h,
+                w: "auto",
+                h: body_h - firstHeader.h
+            },
+            index: 0,
+            frames: [{
+                name: 'peoplepic',
+                url: './peoplepic_frm.html',
+                bounces: false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false,
+                pageParam: {}
+            }, {
+                name: 'ryxx_list',
+                url: './ryxx_list.html',
+                bounces: false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false,
+                pageParam: {}
+            }]
+        }, function (ret) {
+            consoledebug.log('open index framegroup ret is ' + JSON.stringify(ret))
+        })
+    }
+
+    // 照片列表页切换
+    function openTab() {
+        var listtype_class = $("#listtype").attr('class');
+        if (listtype_class.indexOf('icon-liebiao2') >= 0) {
+            //变更i标签图标
+            $("#listtype").removeClass('icon-liebiao2');
+            $("#listtype").addClass('icon-ai-img-list');
+            api.setFrameGroupIndex({
+                name: 'people_group',
+                index: 1
+            });
+
+        } else {
+            //变更i标签图标
+            $("#listtype").removeClass('icon-ai-img-list');
+            $("#listtype").addClass('icon-liebiao2');
+            api.setFrameGroupIndex({
+                name: 'people_group',
+                index: 0
+            });
+        }
+    }
+
+    //打开人员详情页
+    function handType(id) {
+
+        var item = "select * , (SELECT NAME FROM DIC_RS_ZB64 WHERE CODE = RS_A01.ZGXL) ZGXL_NAME,(SELECT NAME FROM DIC_RS_GB6864 WHERE CODE = RS_A01.ZGXW) ZGXW_NAME,(SELECT NAME FROM DIC_RS_GB3304 WHERE CODE = RS_A01.A0117) A0117_NAME from rs_a01 where  ID = '" + id + "'";
+
+
+        var data = {
+            data: item,
+            value: picallarr,
+            ID: id
+        }
+
+        comOpenWin('grxx_win', './', data, 2);
+
+        item = null
+
+    }
+
+
+    //照片及列表页详情 搜索
+    function openSx() {
+        var body_h = api.winHeight
+        var firstHeader = _fixStatusBar('header')
+        api.openFrame({
+            name: 'insidefilter',
+            url: 'widget://html/ryxx/insidefilter.html',
+            rect: {
+                x: 0,
+                y: 0,
+                w: "auto",
+                h: "auto"
+            },
+            bgColor: 'rgba(255,0,0,0)',
+            reload: true,
+            pageParam: {
+                // data: citname   //不传城市搜索
+                data: city_arr[city_arr.length - 1].ID,
+                city_arr: city_arr,
+                id_arr: id_arr
+            }
+        });
+
+    }
+
+
+    //打开城市页切换
+    function opencitylist() {
+        var body_h = api.winHeight
+        var body_w = api.winWidth
+        var firstHeader = _fixStatusBar('header')
+        api.openFrame({
+            name: 'cityfilter_frm',
+            url: 'widget://html/ryxx/cityfilter_frm.html',
+            rect: {
+                x: 20,
+                y: firstHeader.h,
+                w: body_w - 34,
+                h: 250
+            },
+            bgColor: 'rgba(255,0,0,0)',
+            reload: true,
+            pageParam: {
+                data: city_arr[city_arr.length - 1].ID,
+                city_arr: city_arr,
+                all: api.pageParam.data
+            }
+        });
+    }
+
+
+    function clicktoBack(winName) {
+        api.execScript({
+            name: 'root',
+            frameName: 'filter',
+            script: 'cleanidarr()'
+        });
+        api.closeWin(winName)
+    }
+</script>
+</html>

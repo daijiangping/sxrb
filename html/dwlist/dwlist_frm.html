@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <style>
+        html, body {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .table-th {
+            width: 6%;
+            text-align: center;
+            color: #BFBFE4;
+            /*white-space:nowrap;*/
+            font-size: 10px;
+
+        }
+
+        .table-th-two {
+            width: 5%;
+            text-align: center;
+            color: #BFBFE4;
+            font-size: 10px
+        }
+
+        .table-td {
+            line-height: 30px;
+            text-align: center;
+            /*width: auto;*/
+            font-size: 10px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .box-one {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            color: white;
+        }
+
+        .broder-img {
+            width: 96%;
+            height: 5px;
+            margin: 0 auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-image: url(../../image/ren_index_weizhi.png);
+        }
+
+        .table-style {
+            color: white;
+            width: 96%;
+            font-size: 15px;
+            margin-left: 2%;
+            margin-right: 2%;
+            /*margin-top: 6px;*/
+            border-color: #11234F;
+        }
+
+        .text-oneline {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            word-break: break-all;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="box-one">
+
+    <!--<div class="broder-img"></div>-->
+    <table class="table-style" border="1">
+        <tr style='background-color:#0C1A38;'>
+            <td class='table-th ' style="width: 4%">序号</td>
+            <td class='table-th ' style="width: 10%">单位名称</td>
+            <td class='table-th-two' style="width: 6%">下级单位个数<span>（法人单位/内设机构）</span></td>
+            <td class='table-th-two' style="width: 6%">正职领导职数 <span>（实配/应配）</span></td>
+            <td class='table-th-two' style="width: 6%">副职领导职数<span>（实配/应配）</span></td>
+            <td class='table-th-two' style="width: 6%">事业编制数（参照）<span>（实配/应配）</span></td>
+            <td class='table-th' style="width: 5%">总人数</td>
+            <td class='table-th' style="width: 5%">女干部</td>
+            <td class='table-th' style="width: 5%">少数民族</td>
+            <td class='table-th' style="width: 5%">非党员</td>
+            <td class='table-th' style="width: 10%">单位简称</td>
+            <td class='table-th' style="width: 8%">单位性质类别</td>
+            <td class='table-th' style="width: 8%">单位级别</td>
+            <td class='table-th' style="width: 8%">所在政区</td>
+            <td class='table-th' style="width: 8%">隶属关系</td>
+        </tr>
+
+    </table>
+
+    <div style="width: 100%;height: 86%;overflow-y: auto">
+        <table id="message-content" border="1px" class="table-style">
+
+        </table>
+    </div>
+
+    <div class="broder-img"></div>
+</div>
+
+
+<script id="message-content-template" type="text/x-dot-template">
+    <tr style='background-color:#0C1A38;'>
+        <td class='table-th' style="width: 4%">{{=it.index}}</td>
+        <td class='table-th' style="width: 10%">{{=it.NAME}}</td>
+        <td class='table-th-two' style="width: 6%">{{=it.J2}} /{{=it.J3}}</td>
+        <td class='table-th-two' style="width: 6%">{{=it.J10}} / {{=it.J5}}</td>
+        <td class='table-th-two' style="width: 6%">{{=it.J11}} / {{=it.J6}}</td>
+        <td class='table-th-two' style="width: 6%">{{=it.J16}} / {{=it.J14}}</td>
+        <td class='table-th' style="width: 5%">{{=it.J9}}</td>
+        <td class='table-th' style="width: 5%">{{=it.NV}}</td>
+        <td class='table-th' style="width: 5%">{{=it.SSMZ}}</td>
+        <td class='table-th' style="width: 5%">{{=it.FZG}}</td>
+        <td class='table-th' style="width: 10%">{{=it.B0101B}}</td>
+        <td class='table-th' style="width: 9%">{{=it.B0131}}</td>
+        <td class='table-th' style="width: 9%">{{=it.B0127}}</td>
+        <td class='table-th' style="width: 9%">{{=it.B0117}}</td>
+        <td class='table-th' style="width: 9%">{{=it.B0124}}</td>
+    </tr>
+</script>
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/scriptabxz.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript">
+
+    var sql = null
+    var sqlone = null
+    var sqltwo = null
+    var rownum = 0;
+    var loading_flag = false;
+    var peo_arr = []
+    apiready = function () {
+        sql = api.pageParam.data.sql;
+
+        var y = 0;
+        var count = 100;
+        var num = y * count;
+        sqlone = sql + " limit " + count + " offset " + num + ";";
+        selectSql(sqlone, function (ret, err) {
+
+            openpiclist(ret.data)
+
+        })
+
+
+        api.addEventListener({
+            name: 'scrolltobottom',
+            extra: {
+                threshold: 200
+            }
+        }, function (ret, err) {
+            consoledebug.log('addEventListener loading_flag is : ' + loading_flag)
+
+            if (!loading_flag) {
+
+                showProgress()
+                loading_flag = true;
+                var count = 100;
+                var num = rownum * count;
+                sqltwo = sql + " limit " + count + " offset " + num + ";";
+                selectSql(sqltwo, function (ret, err) {
+                    openpiclist(ret.data)
+                })
+
+
+            }
+        })
+    };
+
+
+    //列表序列号计算数组
+    var newsObj_arr = [];
+
+    function openpiclist(people) {
+
+        consoledebug.log("数据:" + JSON.stringify(people));
+
+        hideProgress()
+        if (!judgeIsAnyNullStr(people)) {
+            for (var i = 0; i < people.length; i++) {
+                newsObj_arr.push(people[i]);
+                var news_obj = clone(people[i]);
+                news_obj.index = newsObj_arr.length
+                var interText = doT.template($("#message-content-template").text());
+                $("#message-content").append(interText(news_obj));
+            }
+            rownum++;
+            loading_flag = false;
+            peo_arr = []
+        } else {
+            showAlert(TIP_STR, "暂无信息");
+            loading_flag = true
+        }
+    }
+</script>
+</html>

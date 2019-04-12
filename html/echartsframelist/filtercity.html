@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/layoutnew.css"/>
+    <style>
+        html, body {
+            background: rgba(0, 0, 0, 0);
+            height: 100%;
+        }
+
+        #dw-list-content li {
+            font-size: 14px;
+            float: left;
+            margin: 5px 10px;
+        }
+
+        .butt-style {
+            width: 50%;
+            height: 25px;
+            line-height: 25px;
+            margin: 0 auto;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .butt-style-butt {
+            width: 30%;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 4px;
+            background-color: #515A7E;
+            color: white;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="danxuanqu" style="height: 100%;width: 100%;background:url(../../images/bac.png) no-repeat; ">
+    <div class="renxuanze" style="margin: 0">
+
+
+        <ul id="dw-bottom-content" class="top-message-content" style="font-size: 16px">
+            <li>
+                <a href="#" data-code="0" onclick="clickBottom(this)">填报单位</a>
+            </li>
+        </ul>
+
+
+        <!--单位搜索-->
+        <!--<div style="float: right;width: 30%;height: 40px;background-color: #dd191b;position: absolute;top:5px;right: 10px">-->
+            <!--<input id="cityname" type="text" style="width: 100%;height: 40px"-->
+                   <!--class="aui-margin-l-15 dark-font"-->
+                   <!--placeholder="请输入单位名称">-->
+            <!--<div style="width: 20%;height: 40px;position: absolute;top:0;right: 0;background-color: #673ab7"-->
+                 <!--onclick="clicksearch()"></div>-->
+        <!--</div>-->
+
+
+    </div>
+
+    <div style="width: 100%;height: 80%;overflow: auto;">
+        <ul id="dw-list-content" style="font-size: 16px">
+
+        </ul>
+    </div>
+
+</div>
+
+<footer style="width: 100%;height: 40px;position: fixed;bottom: 0;background-color: #0C1A38;z-index: 99">
+
+    <div class="butt-style">
+        <div class="butt-style-butt" style="float: left" onclick="clicksure()">确定</div>
+        <div class="butt-style-butt" style="float: right" onclick="closeFrame();">取消</div>
+    </div>
+
+</footer>
+
+<script id="dw-bottom-template" type="text/x-dot-template">
+    <li style="width: 80px; overflow: hidden;  text-overflow: ellipsis;  -webkit-line-clamp: 1;  display: -webkit-box;  -webkit-box-orient: vertical;  word-break: break-all;">
+        <a href="#" data-code="{{=it.ID}}" onclick="clickBottom(this)">{{=it.NAME}}</a>
+    </li>
+</script>
+
+
+<script id="dw-list-template" type="text/x-dot-template">
+    <li>
+        <a href="#" data-code="{{=it.ID}}" data-sid="{{=it.SID}}" onclick="clickList(this)">{{=it.NAME}}</a>
+    </li>
+</script>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/scriptabxz.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript" src="../../script/echarts.min.js"></script>
+<script type="text/javascript" src="../../script/lodash.js"></script>
+<script type="text/javascript">
+
+
+    var place_array_NAME,  //获得传值如图片最后一个字段的 name
+        place_array_ID,    //获得传值如图片最后一个字段的 id
+        type;                //获得是 frmo frm1 frm3 那个页面的点击事件
+    var place_array = []     //传入图片数组
+
+    apiready = function () {
+        var pageParam = api.pageParam.item;
+
+        place_array = pageParam.place_array
+
+        place_array_NAME = place_array[place_array.length - 1].NAME
+        place_array_ID = place_array[place_array.length - 1].ID
+
+        type = pageParam.type
+
+
+        $('#dw-bottom-content').empty()
+
+        _place_array = _.clone(place_array)
+
+        var _index = 0
+
+        $('#dw-top-content li').each(function (index) {
+            if ($(this).find('a').attr('data-code') === place_array_ID) {
+                consoledebug.log('index is : ' + index)
+                _index = index
+                return false
+            }
+        })
+
+        var list_length = $('#dw-top-content li').length
+
+        for (var i = list_length - 1; i > _index; i--) {
+            place_array.pop()
+        }
+
+        for (var j = 0; j < place_array.length; j++) {
+            loadBottomHtml(place_array[j])
+        }
+
+        getDW(place_array_ID)
+
+    };
+
+
+    function clickBottom(el) {
+
+        search_flag = false;
+
+        var name = $(el).text()
+        var code = $(el).attr('data-code')
+
+        place_array_ID = code
+
+        var _index = 0
+
+        $('#dw-bottom-content li').each(function (index) {
+            if ($(this).find('a').attr('data-code') === code) {
+                consoledebug.log('index is : ' + index)
+                _index = index
+                return false
+            }
+        })
+
+        consoledebug.log('_index is : ' + JSON.stringify(_index))
+
+        var list_length = $('#dw-bottom-content li').length
+
+        consoledebug.log('list_length is : ' + JSON.stringify(list_length))
+
+        consoledebug.log('place_array is : ' + JSON.stringify(place_array))
+
+        for (var i = list_length - 1; i > _index; i--) {
+            place_array.pop()
+        }
+
+        consoledebug.log('place_array is : ' + JSON.stringify(place_array))
+
+        $('#dw-bottom-content').empty()
+
+        for (var j = 0; j < place_array.length; j++) {
+            loadBottomHtml(place_array[j])
+        }
+
+        getDW(code)
+    }
+
+
+    function loadBottomHtml(data) {
+        var interText = doT.template($("#dw-bottom-template").text())
+        $("#dw-bottom-content").append(interText(data))
+    }
+
+    function loadListHtml(data) {
+        var interText = doT.template($("#dw-list-template").text())
+        $("#dw-list-content").append(interText(data))
+    }
+
+    function getDW(code) {
+        $('#dw-list-content').empty()
+
+        selectSql(converPlaceWithCode(code), function (ret, err) {
+            consoledebug.log('selectSql converPlaceWithCode ret is : ' + JSON.stringify(ret))
+            consoledebug.log('selectSql converPlaceWithCode err is : ' + JSON.stringify(err))
+
+            if (ret.status) {
+                var data = ret.data
+
+                for (var i = 0; i < data.length; i++) {
+                    loadListHtml(data[i])
+                }
+
+                $('#danxuanqu').slideDown()
+            } else {
+
+            }
+        })
+    }
+
+
+    function clickList(el) {
+
+
+        var name = $(el).text()
+        var code = $(el).attr('data-code')
+
+        var sid = $(el).attr('data-sid')
+
+        place_array_ID = code
+
+        if (!search_flag) {
+
+            var param = {
+                NAME: name,
+                ID: code
+            }
+
+            place_array.push(param)
+
+            consoledebug.log('clickList place_array is : ' + JSON.stringify(place_array))
+
+            $('#dw-bottom-content').empty()
+
+            for (var i = 0; i < place_array.length; i++) {
+                loadBottomHtml(place_array[i])
+            }
+        } else {
+            //单位搜索反查
+
+            var db = api.require('db');
+            var dw_arr = []
+            search_flag = false
+
+            dw_arr.push({ID: code, NAME: name})
+
+            $('#dw-bottom-content').empty()
+
+
+            for (var i = 1; i > 0; i++) {
+
+                var ret = db.selectSqlSync({
+                    name: db_name,
+                    sql: converSid(sid)
+                });
+
+                if (ret.data[0].SID == '-1') {
+                    i = -1
+                }
+                sid = ret.data[0].SID
+
+
+                dw_arr.push(ret.data[0])
+
+            }
+
+            place_array = dw_arr.reverse()
+
+
+            for (var j = 0; j < place_array.length; j++) {
+                loadBottomHtml(place_array[j])
+            }
+
+
+        }
+        getDW(code)
+    }
+
+
+    function converPlaceWithCode(place_code) {
+        var sql = "SELECT ID,NAME FROM RS_UNMK WHERE SID='" + place_code + "' AND B0198 !='2' ORDER BY SYSUMPORDER "
+
+        return sql
+    }
+
+
+    function clicksure() {
+
+        place_name = $('#dw-bottom-content li').last().find('a').text()
+
+
+        if (type == '1') {
+            api.sendEvent({
+                name: 'frame0name',
+                extra: {
+                    place_arr: place_array,
+                    code: place_array_ID,
+                    place_name: place_name
+                }
+            });
+        } else if (type == '2') {
+            api.sendEvent({
+                name: 'frame1name',
+                extra: {
+                    place_arr: place_array,
+                    code: place_array_ID,
+                    place_name: place_name
+                }
+            });
+        } else {
+            api.sendEvent({
+                name: 'frame3name',
+                extra: {
+                    place_arr: place_array,
+                    code: place_array_ID,
+                    place_name: place_name
+                }
+            });
+        }
+
+        closeFrame()
+    }
+
+
+
+
+
+ //   -------------------------------------------------------
+
+
+    // 根据SID 搜索上级 单位
+    function converSid(sid) {
+        var sql = "select sid,id,name from rs_unmk where id='" + sid + "'"
+        return sql
+    }
+
+    //根据名字搜索 单位
+    function converPlaceName(cityname) {
+        var sql = "select SID,id,name from rs_unmk  where name like '" + cityname + "%'"
+        return sql
+    }
+
+    var search_flag = false;       //是否为单位搜索查出列表事件
+
+
+    function clicksearch() {
+        search_flag = true
+
+        var cityname = $('#cityname').val()
+
+        $('#dw-list-content').empty()
+
+        selectSql(converPlaceName(cityname), function (ret, err) {
+
+            if (ret.status) {
+                var data = ret.data
+
+                for (var i = 0; i < data.length; i++) {
+                    loadListHtml(data[i])
+                }
+
+            }
+        })
+
+    }
+</script>
+</html>

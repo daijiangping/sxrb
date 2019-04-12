@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style1.css"/>
+    <style>
+        html {
+            font-size: 6.25vw
+        }
+
+        @media screen and (max-device-width: 768px) {
+            html {
+                font-size: 14px
+            }
+        }
+
+        @media screen and (max-device-width: 1280px) {
+            html {
+                font-size: 16px
+            }
+        }
+
+        @media screen and (min-device-width: 1920px) {
+            html {
+                font-size: 20px
+            }
+        }
+
+        body, button, h1, h2, h3, h4, input, select, table, textarea {
+            font-size: .6rem;
+            font-weight: 400
+        }
+
+        .aui-title-style {
+            width: 4rem;
+            margin-left: 20px;
+            color: #c7dff8;
+            font-size: .8rem;
+            line-height: 1.9rem;
+            height: 1.9rem;
+        }
+
+        .aui-active {
+            border-bottom: 3px solid #004aee;
+            color: #fff !important;
+        }
+
+        .tjrq {
+            width: 100%;
+            height: 0.5rem;
+            line-height: 0.5rem;
+            margin-top: 1rem;
+            margin-right: -10px;
+            text-align: right;
+            color: #c7dff8;
+            font-size: 10px
+        }
+
+        .bg-top {
+            background: url(image/top.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            min-width: 900px;
+            height: 2rem;
+        }
+
+        .aui-bar-nav {
+            line-height: 1rem;
+            height: 2rem;
+        }
+    </style>
+</head>
+<body>
+<header id="header" class="aui-bar aui-bar-nav bg-top">
+
+    <img src="image/logo.png" style="float:left; height:1.7rem; margin-left:.18rem;"/>
+
+    <div id="tab" class="aui-title" style="float: left;margin-left:50px">
+        <span class="aui-title-style aui-active">首页1</span>
+        <span class="aui-title-style">单位信息</span>
+        <span class="aui-title-style">人员信息</span>
+        <span class="aui-title-style">直统报表</span>
+
+    </div>
+
+    <div class="aui-pull-right aui-btn aui-btn-outlined" style="border: none;font-size:.8rem;height:.8rem;">
+        <div style="width: 100%;height: auto;position: absolute;top:-0.2rem;right:.6rem" onClick="clickSelectFile()">
+            <i id="ml_btn" class="icon iconfont icon-celanliebiaogengduo aui-font-size-16" style="color: #c7dff8;"></i>
+        </div>
+    </div>
+</header>
+
+
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="script/common.js"></script>
+<script type="text/javascript" src="script/aui-tab.js"></script>
+<script type="text/javascript" src="script/jquery.min.js"></script>
+<script type="text/javascript" src="script/leek-common.js"></script>
+<script type="text/javascript">
+
+    var open_db_time = 0
+
+    var frame0_flag = 0,
+        frame1_flag = 0,
+        filter_flag = 0,
+        frame3_flag = 0;
+    apiready = function () {
+
+        var systemType = api.systemType;
+        if (systemType == "ios") {
+            api.setStatusBarStyle({
+                style: 'dark',
+                color: '#000'
+            });
+        }
+        initFrameGroup()
+
+
+        api.addEventListener({
+            name: 'frame0'
+        }, function (ret, err) {
+            frame0_flag = ret.value.data
+        })
+        api.addEventListener({
+            name: 'frame1'
+        }, function (ret, err) {
+            frame1_flag = ret.value.data
+        })
+        api.addEventListener({
+            name: 'frame3'
+        }, function (ret, err) {
+            frame3_flag = ret.value.data
+        })
+
+    }
+
+    function clickTs() {
+        api.execScript({
+            frameName: 'frame0',
+            script: 'handType()'
+        });
+    }
+
+    var tab = new auiTab({
+        element: document.getElementById("tab")
+    }, function (ret) {
+        openTab(ret.index)
+    });
+
+
+    function initFrameGroup() {
+        var body_h = api.winHeight
+        var firstHeader = _fixStatusBar('header')
+        consoledebug.log('initFrameGroup body_h fourHeader_h is ' + body_h + " " + firstHeader.h)
+        api.openFrameGroup({
+            name: 'index_group',
+            background: './image/bac.png',
+            scrollEnabled: false,
+            vScrollBarEnabled: false,
+            rect: {
+                x: 0,
+                y: firstHeader.h,
+                w: "auto",
+                h: body_h - firstHeader.h
+            },
+            preload: 0,
+            index: 0,
+            frames: [{
+                name: 'frame0',
+                url: './html/frame0.html',
+                bounces: false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false
+            }, {
+                name: 'frame1',
+                url: './html/frame1.html',
+                bounces: false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false
+            }, {
+                name: 'filter',
+                url: './html/ryxx/filter.html',
+                bounces: false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false
+            }, {
+                name: 'frame3',
+                url: './html/frame3.html',
+                bounces: false,
+                vScrollBarEnabled: false,
+                hScrollBarEnabled: false
+            }]
+        }, function (ret) {
+            consoledebug.log('open index framegroup ret is ' + JSON.stringify(ret))
+         is_db_file_exist()
+
+        })
+    }
+
+
+    function openTab(type) {
+        consoledebug.log('openTab type is ' + type);
+        switch (type) {
+            case 1:
+                randomSwitchBtn(0);
+                break;
+            case 2:
+                randomSwitchBtn(1);
+                break;
+            case 3:
+                randomSwitchBtn(2);
+                break;
+            case 4:
+                randomSwitchBtn(3);
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    function randomSwitchBtn(index) {
+        api.setFrameGroupIndex({
+            name: 'index_group',
+            index: index
+        });
+        if (index == 0 && frame0_flag !=0) {
+            api.sendEvent({
+                name: 'loadnew',
+                extra: {}
+            });
+        } else if (index == 1 && frame1_flag !=0) {
+            frame1_flag = 0
+            api.sendEvent({
+                name: 'loadnew1',
+                extra: {}
+            });
+        } else if (index == 2) {
+            api.sendEvent({
+//                name: 'loadnew2',
+//                extra: {}
+            });
+        } else if (index == 3 && frame3_flag !=0){
+            frame3_flag = 0
+            api.sendEvent({
+                name: 'loadnew3',
+                extra: {}
+            });
+        }
+    }
+
+
+    function clickSelectFile() {
+        number = 0  //计数判断 压缩包是否都解压完成
+        selectFile(function (ret, err) {
+            showProgress('第1个压缩包')
+            var file_path = ret.path
+            var file_path_long = file_path.lastIndexOf("\/")
+            var file_path_arr = []
+            file_path_arr[0] = file_path.substring(0, file_path_long + 1) + 'one.zip'
+            file_path_arr[1] = file_path.substring(0, file_path_long + 1) + 'two.zip'
+            file_path_arr[2] = file_path.substring(0, file_path_long + 1) + 'three.zip'
+
+            _is_file_exist(file_path, function (ret, err) {
+
+                if (ret.exist && !ret.directory) {
+                    _is_file_exist(fs_file_path, function (ret, err) {
+
+                        if (ret.exist) {
+                            if (ret.directory) {
+                                rmDir(fs_file_path, function (ret, err) {
+                                    consoledebug.log('rmdir ret is : ' + JSON.stringify(ret))
+                                    consoledebug.log('rmdir err is : ' + JSON.stringify(err))
+
+                                    if (ret.status) {
+                                        fsCreateDir(fs_file_path, function (ret, err) {
+                                            consoledebug.log('fsCreateDir ret is : ' + JSON.stringify(ret))
+                                            consoledebug.log('fsCreateDir err is : ' + JSON.stringify(err))
+
+                                            for (var i = 0; i < file_path_arr.length; i++) {
+                                                copyToSync(file_path_arr[i], fs_file_path, handleCopyTo)
+                                            }
+
+
+                                        })
+                                    } else {
+
+                                    }
+                                })
+                            } else {
+                                fsRemove(fs_file_path, function (ret, err) {
+                                    consoledebug.log('fsRemove ret is : ' + JSON.stringify(ret))
+                                    consoledebug.log('fsRemove err is : ' + JSON.stringify(err))
+
+                                    if (ret.status) {
+                                        fsCreateDir(fs_file_path, function (ret, err) {
+                                            consoledebug.log('fsCreateDir ret is : ' + JSON.stringify(ret))
+                                            consoledebug.log('fsCreateDir err is : ' + JSON.stringify(err))
+
+
+                                            consoledebug.log('压缩包个数: ' + JSON.stringify(file_path_arr))
+
+                                            for (var i = 0; i < file_path_arr.length; i++) {
+
+                                                copyToSync(file_path_arr[i], fs_file_path, handleCopyTo)
+                                            }
+
+
+                                        })
+                                    } else {
+
+                                    }
+                                })
+                            }
+                        } else {
+                            consoledebug.log('否')
+                            fsCreateDir(fs_file_path, function (ret, err) {
+                                consoledebug.log('fsCreateDir ret is : ' + JSON.stringify(ret))
+                                consoledebug.log('fsCreateDir err is : ' + JSON.stringify(err))
+
+
+                                for (var i = 0; i < file_path_arr.length; i++) {
+                                    copyToSync(file_path_arr[i], fs_file_path, handleCopyTo)
+                                }
+
+                            })
+                        }
+                    })
+                } else {
+                    consoledebug.log('否')
+                }
+            })
+        })
+    }
+
+
+    var number = 0
+    function handleCopyTo(ret, file_path) {
+
+        if (ret.status) {
+
+            unarchive(file_path, fs_file_path, function (ret, err) {
+
+
+                if (ret.status) {
+                    number++
+                    showProgress('第'+(parseInt(number)+parseInt(1))+'个压缩包' )
+                    //  is_db_file_exist()
+                    if (number == 3) {
+                        is_db_file_exist()
+                        // hideProgress()
+                    }
+
+
+                } else {
+                    hideProgress()
+                }
+
+            })
+        } else {
+
+        }
+    }
+
+    function init() {
+        openDatabase(function (ret, err) {
+            if (ret.status) {
+                api.sendEvent({
+                    name: 'OPENDB'
+                })
+                hideProgress()
+            } else {
+                hideProgress()
+            }
+        })
+    }
+
+    function is_db_file_exist() {
+        _is_file_exist(db_file_path, function (ret, err) {
+            consoledebug.log('unarchive ret is : ' + JSON.stringify(ret))
+            consoledebug.log('unarchive err is : ' + JSON.stringify(err))
+
+            if (ret.exist) {
+                init()
+            } else {
+                showAlert('没有找到数据库文件，请选择数据库文件')
+                hideProgress()
+            }
+            hideProgress()
+        })
+    }
+</script>
+</html>

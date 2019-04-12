@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/layoutnew.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <style>
+    	html,body{
+            background-color: #0F1D41;
+    	}
+    </style>
+</head>
+<body>
+<header id='header' class="aui-bar-nav-new" style="z-index: 99;position: fixed;top: 0">
+    <div class="aui-pull-left" onclick="clickBack();">
+        <span class="icon iconfont icon-back">返回</span>
+    </div>
+    <span id="zpzh" style="float: right" onclick="clickZh()">人员详情</span>
+
+</header>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/scriptabxz.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+        var type = api.pageParam.data;
+        
+        comOpenFrame('grxx_frm', './', false, api.pageParam.data, 0);
+
+        api.addEventListener({
+            name: 'keyback'
+        }, function (ret, err) {
+            /*
+             *回复横屏
+             */
+            api.setScreenOrientation({
+                orientation: 'landscape_left'
+            });
+            clickBack();
+        })
+	};
+	
+	
+	function clickZh() {
+	  var  topname = $("#zpzh").text()
+	    var type
+        if(topname == '人员详情'){
+            $("#zpzh").text('任免审批')
+            type = 0
+
+        }else {
+            $("#zpzh").text('人员详情')
+            type = 1
+        }
+
+        api.execScript({
+            frameName: 'grxx_frm',
+            script: 'clickZpSp('+type+')'
+        });
+    }
+</script>
+</html>

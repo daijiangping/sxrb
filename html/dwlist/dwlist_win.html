@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <style>
+        html, body {
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .ts-style {
+            width: 50px;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            float: right;
+            font-size: 12px;
+            margin-right: 10px
+        }
+
+        .aui-bar-new {
+            position: relative;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            min-height: 1.5rem;
+            display: table;
+        }
+
+        .aui-bar-nav-new {
+            top: 0;
+            line-height: 1.5rem;
+            color: #BFBFE4;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 120%;
+            background-image: url(../../image/pic_win.png);
+        }
+    </style>
+</head>
+<body>
+
+
+<header id='header' class="aui-bar-new aui-bar-nav-new ">
+    <div class="aui-pull-left ts-style" onclick="clickBackwin();">
+        <i class="icon iconfont icon-back">返回</i>
+    </div>
+
+
+    <div class="ts-style titlename">标题</div>
+
+</header>
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+
+<script type="text/javascript">
+    //入口函数
+    apiready = function () {
+        consoledebug.log(JSON.stringify(api.pageParam.data));
+        $(".titlename").text(api.pageParam.data.name);
+        var header = $api.byId('header')
+        _fixStatusBar('header')
+        var headerPos = $api.offset(header)
+        headH = headerPos.h
+        api.openFrame({
+            name: 'dwlist_frm',
+            bgColor: '../../image/bac.png',
+            url: './dwlist_frm.html',
+            rect: {x: 0, y: headH, w: 'auto', h: api.winHeight - headH},
+            pageParam: {
+                data:api.pageParam.data
+            }
+        });
+    };
+
+    function clickBackwin() {
+        api.execScript({
+            name: 'root',
+            frameName: 'frame1',
+            script: 'cleanarr()'
+        });
+        api.closeWin()
+    }
+
+</script>
+</html>

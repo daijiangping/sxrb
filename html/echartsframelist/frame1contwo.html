@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/layoutnew.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <style>
+        html, body {
+            background:url(../../images/bac.png) no-repeat;
+            height: 100%;
+        }
+
+
+    </style>
+</head>
+<body ondblclick="closeFrame()">
+
+<div class="aui-bar-nav-new" style="z-index: 99;position: fixed;top: 0">
+    <div class="aui-pull-left" onclick="closeFrame();">
+        <span class="icon iconfont icon-back">返回</span>
+    </div>
+    <span>学历信息</span>
+
+    <div class="aui-pull-right"style="color: transparent ">
+        <span class="icon iconfont icon-back">占位</span>
+    </div>
+</div>
+
+<div style="width: 100%;height: 99%;margin:0 auto;padding:3%;overflow: auto;">
+
+    <div class="echartstwo">
+        <div id="cont_two_2" class="echartsfour" >
+
+        </div>
+    </div>
+
+
+    <!--表格-->
+    <table id="message-content" border="0" class="table_rylb conytb">
+
+    </table>
+
+</div>
+
+
+
+<script id="message-content-template" type="text/x-dot-template">
+    <!--列表-->
+
+        <table>
+            {{for(var i=0;i
+            <it.length ;i++){}}
+            <tr class="white-bg">
+                {{for(var a=1;a
+                <it [i].length ;a++){}}
+
+                <td style="width: 3%;" class="blue-listth-bg border-table"  onclick="clickopenpeo('{{=it[i][0]}}','20','{{=[a]}}','{{=it[i][a]}}')">{{=it[i][a]}}</td>
+
+                {{}}}
+            </tr>
+            {{}}}
+        </table>
+
+</script>
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/scriptabxz.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript" src="../../script/echarts.min.js"></script>
+<script type="text/javascript">
+
+    var list_arr_id
+
+    var cityname
+    apiready = function () {
+        var pageParam = api.pageParam.item;
+        consoledebug.log(JSON.stringify(pageParam));
+        showMiddleBottomType3SecondChart(pageParam.containe_arr, pageParam.province_conver_array)
+
+        pageParam.province_conver_array.push(' ')
+        pageParam.province_conver_array.push(' ')
+
+
+        pageParam.containe_arr.J14.push('研究生')
+        pageParam.containe_arr.J14.push('14')
+
+        pageParam.containe_arr.J15.push('本科')
+        pageParam.containe_arr.J15.push('15')
+
+        pageParam.containe_arr.J16.push('专科')
+        pageParam.containe_arr.J16.push('16')
+
+        pageParam.containe_arr.J17.push('中专及以下')
+        pageParam.containe_arr.J17.push('17')
+
+        var list_arr = []
+        list_arr[0] = pageParam.province_conver_array.reverse()
+        list_arr[1] = pageParam.containe_arr.J14.reverse()
+        list_arr[2] = pageParam.containe_arr.J15.reverse()
+        list_arr[3] = pageParam.containe_arr.J16.reverse()
+        list_arr[4] = pageParam.containe_arr.J17.reverse()
+
+        list_arr_id =  pageParam.provinceid_array.reverse()
+        cityname = list_arr[0]
+
+
+        var interText = doT.template($("#message-content-template").text());
+        $("#message-content").html(interText(list_arr));
+
+
+
+        api.addEventListener({
+            name: 'cleanarr'
+        }, function (ret, err) {
+            cleanarr()
+        })
+    };
+
+    function showMiddleBottomType3SecondChart(data, name) {
+        var colName = ['研究生', '本科', '专科', '中专及以下']
+
+        middle_bottom_type_3_second_chart = echarts.init(document.getElementById('cont_two_2'))
+
+        middle_bottom_type_3_second_chart.showLoading({text: '正在努力的读取数据中...'})
+
+        var param = data
+
+        var province_conver_array = name
+
+
+        var setOption = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: colName,
+                textStyle: {
+                    color: '#C1C1E4',
+                    fontSize: 12
+                },
+                itemHeight: 12,
+                itemWidth: 12
+            },
+            calculable: true,
+            xAxis: [
+                {
+                    type: 'category',
+                    data: province_conver_array,
+                    axisLabel: {
+                        interval: 0,
+                        textStyle: {
+                            fontSize: 12// 让字体变大
+                        }
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#0087ED',
+                            width: 1
+                        }
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    splitLine: {
+                        show: false
+                    },
+                    axisLabel: {
+                        interval: 0,
+                        textStyle: {
+                            fontSize: 12// 让字体变大
+                        }
+                    },
+                    type: 'value',
+                    name: '人数（位）',
+                    nameGap: 15,
+                    axisLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#0087ED',
+                            width: 1
+                        }
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: colName[0],
+                    type: 'bar',
+                    data: param.J14
+                },
+                {
+                    name: colName[1],
+                    type: 'bar',
+                    data: param.J15
+                },
+                {
+                    name: colName[2],
+                    type: 'bar',
+                    data: param.J16
+                },
+                {
+                    name: colName[3],
+                    type: 'bar',
+                    data: param.J17
+                }
+            ]
+        }
+
+        middle_bottom_type_3_second_chart.setOption(setOption)
+
+
+
+        middle_bottom_type_3_second_chart.hideLoading()
+    }
+
+
+    var rossidlist = []
+
+    var colsidlist = []
+
+    var peosqllist = []
+    var sqlthree = null
+
+    var colrowidnumber
+
+    var number
+
+
+    var sqlwhereone
+
+
+    function clickopenpeo(colsid, rowsid, name, val, ID) {
+        colrowidnumber = 0
+        number = 0
+
+        place_code = list_arr_id[name-2]
+
+        var  thname =  cityname[name]
+
+
+        rossidlist = rowsid.split(",");
+
+        colsidlist = colsid.split(",");
+        colrowidnumber = parseInt(rossidlist.length)*parseInt(colsidlist.length)
+
+        var sql_arr = []
+
+        var re = /^[0-9]+.?[0-9]*$/
+
+        if (val != 0 && !judgeIsAnyNullStr(place_code) && re.test(val)) {
+
+            for (i = 0; i < rossidlist.length; i++) {
+                for (a = 0; a < colsidlist.length; a++) {
+                    selectSql(converFcrySql(colsidlist[a], rossidlist[i]), function (ret, err) {
+                        var sql = ret.data[0].DRILLSQL;
+                        var newsql = sql.replace(/\"/g, "'");
+                        var sqlone = newsql.substring(newsql.lastIndexOf("@FIELDS@") + 9, newsql.lastIndexOf("AND"));
+
+                        var pjsqlone = sqlone.substring(0, sqlone.lastIndexOf("AND") + 3);
+                        //   pjsqltwo = newsql.substring(newsql.lastIndexOf(")") + 1, newsql.lastIndexOf(","));
+
+                        sqlwhereone = newsql.substring(newsql.lastIndexOf("@FIELDS@") + 9, newsql.lastIndexOf("WHERE") + 6);
+
+                        var sqlwhere = sqlone.substring(sqlone.lastIndexOf("WHERE") + 6,sqlone.lastIndexOf("AND"));
+
+                        sql_arr.push(sqlwhere)
+                        number++
+
+                        if(number == colrowidnumber ){
+
+                            var comsql = ''
+                            for (i = 0; i < sql_arr.length; i++) {
+                                comsql += "(" + sql_arr[i] + ") OR "
+
+                            }
+                            comsql ="("+ comsql.substr(0, comsql.length - 3)+") and"
+
+                            if (judgeIsAnyNullStr(ID)) {
+                                sqlthree = "select RS_A01.ID ID, A0101, (CASE WHEN A0104 = 1 THEN '男'else'女'end) A0104, age, a0140, (SELECT NAME FROM DIC_RS_GB3304 WHERE CODE = A0117) A0117, A0192, (SELECT NAME FROM DIC_rs_Zb09 where code = A0172) A0172 " + sqlwhereone + comsql + " (RS_A01.NID like '" + place_code + "%') " +  "order by rs_a01.aorder "
+                            } else {
+                                sqlthree = "select RS_A01.ID ID, A0101, (CASE WHEN A0104 = 1 THEN '男'else'女'end) A0104, age, a0140, (SELECT NAME FROM DIC_RS_GB3304 WHERE CODE = A0117) A0117, A0192, (SELECT NAME FROM DIC_rs_Zb09 where code = A0172) A0172 " + sqlwhereone + comsql + " (RS_A01.NID like '" + ID + "%') " + "order by rs_a01.aorder "
+
+                            }
+
+
+                            var item = {
+                                sql: sqlthree,
+                                name: ''
+                            }
+                            comOpenWin('dwpeolist_win', '../dwlist/', item, 2);
+
+                        }
+
+                    })
+                }
+            }
+
+        }
+    }
+
+
+
+    function cleanarr() {
+        peosqllist = []
+        sqlthree = null
+    }
+
+
+
+    function converFcrySql(colsid, rowsid) {
+        var sql = "SELECT * FROM GWY_RPT_LD_NODESQL WHERE  ROWSID='" + rowsid + "' AND COLSID='" + colsid + "' AND RPTABLEID='JT2017001';"
+        return sql
+    }
+
+</script>
+</html>

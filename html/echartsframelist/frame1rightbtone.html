@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/layoutnew.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <style>
+        html, body {
+            background: url(../../images/bac.png) no-repeat;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body ondblclick="closeFrame()">
+
+<div class="aui-bar-nav-new" style="z-index: 99;position: fixed;top: 0">
+    <div class="aui-pull-left" onclick="closeFrame();">
+        <span class="icon iconfont icon-back">返回</span>
+    </div>
+    <span>各职务层次年龄占比</span>
+
+    <div class="aui-pull-right" style="color: transparent ">
+        <span class="icon iconfont icon-back">占位</span>
+    </div>
+</div>
+
+
+<div style="width: 100%;height: 99%;margin:0 auto;padding:3%;overflow: auto;">
+    <div class="echartstwo">
+        <div id="cont_one_1" class="echartsfour">
+
+        </div>
+    </div>
+
+
+    <!--表格-->
+    <table id="message-content" border="0" class="table_rylb conytb">
+
+    </table>
+</div>
+
+<script id="message-content-template" type="text/x-dot-template">
+    <!--列表-->
+
+
+    <thead>
+    <tr>
+        <th style="width: 10%;">
+            &nbsp
+        </th>
+        <th style="width: 10%;">
+            正部
+        </th>
+        <th style="width: 10%;">
+            副部
+        </th>
+        <th style="width: 10%;">
+            正厅
+        </th>
+        <th style="width: 10%;">
+            副厅
+        </th>
+        <th style="width: 10%;">
+            正处
+        </th>
+        <th style="width: 10%;">
+            副处
+        </th>
+        <th style="width: 10%;">
+            正科
+        </th>
+        <th style="width: 10%;">
+            副科
+        </th>
+        <th style="width: 10%;">
+            科员及其他
+        </th>
+
+    </tr>
+    </thead>
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <tr>
+
+
+        {{? it[i][9]==undefined}}
+        <td>{{=it[i][0]}}</td>
+        {{??}}
+        <td>{{=it[i][9]}}</td>
+        {{?}}
+
+        {{? it[i][it[i].length-1][8]==undefined}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','2','{{=it[i][9]}}','{{=it[i][8]}}')">{{=it[i][8]}}
+            {{? it[i][it[i].length-1][8] == '0.00'}}
+            {{??}}
+            </br>({{=it[i][it[i].length-1][8]}}%)
+            {{?}}
+        </td>
+        {{?}}
+
+        {{? it[i][it[i].length-1][7]==undefined}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','3','{{=it[i][9]}}','{{=it[i][7]}}')">{{=it[i][7]}}
+            {{? it[i][it[i].length-1][7] == '0.00'}}
+            {{??}}
+            </br>({{=it[i][it[i].length-1][7]}}%)
+            {{?}}
+        </td>
+        {{?}}
+
+
+        {{? it[i][it[i].length-1][6]==undefined}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','4,5','{{=it[i][9]}}','{{=it[i][6]}}')">{{=it[i][6]}}
+            {{? it[i][it[i].length-1][6] == '0.00'}}
+            {{??}}
+            </br>({{=it[i][it[i].length-1][6]}}%)
+            {{?}}
+        </td>
+        {{?}}
+
+        {{? it[i][it[i].length-1][5]==undefined}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','6,7','{{=it[i][9]}}','{{=it[i][5]}}')">{{=it[i][5]}}
+            {{? it[i][it[i].length-1][5] == '0.00'}}
+            {{??}}
+            </br>({{=it[i][it[i].length-1][5]}}%)
+            {{?}}
+        </td>
+        {{?}}
+
+
+        {{? it[i][it[i].length-1][4]==undefined}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','8,9','{{=it[i][9]}}','{{=it[i][4]}}')">{{=it[i][4]}}
+            {{? it[i][it[i].length-1][4] == '0.00'}}
+            {{??}}
+            </br>({{=it[i][it[i].length-1][4]}}%)
+            {{?}}
+        </td>
+        {{?}}
+
+        {{? it[i][it[i].length-1][3]==undefined}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','10,11','{{=it[i][9]}}','{{=it[i][3]}}')">{{=it[i][3]}}
+            {{? it[i][it[i].length-1][3] == '0.00'}}
+            {{??}}
+            </br>({{=it[i][it[i].length-1][3]}}%)
+            {{?}}
+        </td>
+        {{?}}
+
+        {{? it[i][it[i].length-1][2]==undefined}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','12,13','{{=it[i][9]}}','{{=it[i][5]}}')">{{=it[i][2]}}
+            {{? it[i][it[i].length-1][2] == '0.00'}}
+            {{??}}
+            </br>({{=it[i][it[i].length-1][2]}}%)
+            {{?}}
+        </td>
+        {{?}}
+
+
+        {{? it[i][it[i].length-1][1]==undefined}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','14,15','{{=it[i][9]}}','{{=it[i][1]}}')">{{=it[i][1]}}
+            {{? it[i][it[i].length-1][1] == '0.00'}}
+            {{??}}
+            </br>({{=it[i][it[i].length-1][1]}}%)
+            {{?}}
+        </td>
+        {{?}}
+
+        {{? it[i][it[i].length-1][0]==undefined}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','16,17,18','{{=it[i][9]}}','{{=it[i][0]}}')">{{=it[i][0]}}
+            {{? it[i][it[i].length-1][0] == '0.00'}}
+            {{??}}
+            </br>({{=it[i][it[i].length-1][0]}}%)
+            {{?}}
+        </td>
+        {{?}}
+
+    </tr>
+    {{}}}
+
+
+</script>
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/scriptabxz.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript" src="../../script/echarts.min.js"></script>
+<script type="text/javascript">
+
+    var place_code
+    apiready = function () {
+        place_code = api.pageParam.item.place_code
+
+        var pageParam = api.pageParam.item.containe_arr;
+
+
+        showRightBottomFirstChart(pageParam)
+
+        pageParam.su30.push('30岁以下')
+        pageParam.su30.push('21,22,23')
+
+        pageParam.su40.push('31-40岁')
+        pageParam.su40.push('24,25')
+
+        pageParam.su50.push('41-50岁')
+        pageParam.su50.push('26,27')
+
+        pageParam.su60.push('51-59岁')
+        pageParam.su60.push('28,29')
+
+        pageParam.su10.push('60岁及以上')
+        pageParam.su10.push('30')
+
+
+        var be30 = pageParam.be30
+        var be40 = pageParam.be40
+        var be50 = pageParam.be50
+        var be60 = pageParam.be60
+        var gt60 = pageParam.gt60
+
+
+        var list_arr = []
+        list_arr[0] = pageParam.su30
+        list_arr[0].push(be30)
+
+        list_arr[1] = pageParam.su40
+        list_arr[1].push(be40)
+
+        list_arr[2] = pageParam.su50
+        list_arr[2].push(be50)
+
+        list_arr[3] = pageParam.su60
+        list_arr[3].push(be60)
+
+        list_arr[4] = pageParam.su10
+        list_arr[4].push(gt60)
+
+
+        var interText = doT.template($("#message-content-template").text());
+        $("#message-content").html(interText(list_arr));
+
+        //table 隔行换色
+        $(document).ready(function () {
+            $("table").attr("bgColor", "#0c1a38");
+            $("tr").attr("bgColor", "#0c1b3d");
+            $("tr:even").css("background-color", "#0c1a38");
+
+        });
+
+        api.addEventListener({
+            name: 'cleanarr'
+        }, function (ret, err) {
+            cleanarr()
+        })
+    };
+
+    function showRightBottomFirstChart(data) {
+
+
+        if (data.be30.length > 0) {
+
+
+            var onenumber = 0
+
+            var role_zhengfu_name_array_again_1
+
+            var role_zhengfu_name_array_again_2
+
+            var role_zhengfu_name_array_again_3
+
+            var role_zhengfu_name_array_again_4
+
+            for (var key in data) {
+                if (data[key][data[key].length - 1] == 0) {
+                    onenumber++
+                }
+            }
+            if (onenumber == 10) {
+                role_zhengfu_name_array_again_1 = ['科员及其他', '副科', '正科', '副处', '正处', '副厅', '正厅', '副部']
+            } else {
+                role_zhengfu_name_array_again_1 = ['科员及其他', '副科', '正科', '副处', '正处', '副厅', '正厅', '副部', '正部']
+            }
+            var twonumber = 0
+            for (var key in data) {
+                if (data[key][data[key].length - 2] == 0) {
+                    twonumber++
+                }
+            }
+            if (twonumber == 10) {
+                role_zhengfu_name_array_again_2 = ['科员及其他', '副科', '正科', '副处', '正处', '副厅', '正厅', '正部']
+            } else {
+                role_zhengfu_name_array_again_2 = ['科员及其他', '副科', '正科', '副处', '正处', '副厅', '正厅', '副部', '正部']
+            }
+
+
+            var threenumber = 0
+            for (var key in data) {
+                if (data[key][data[key].length - 3] == 0) {
+                    threenumber++
+                }
+            }
+            if (threenumber == 10) {
+                role_zhengfu_name_array_again_3 = ['科员及其他', '副科', '正科', '副处', '正处', '副厅', '副部', '正部']
+            } else {
+                role_zhengfu_name_array_again_3 = ['科员及其他', '副科', '正科', '副处', '正处', '副厅', '正厅', '副部', '正部']
+            }
+
+
+            var frounumber = 0
+            for (var key in data) {
+                if (data[key][data[key].length - 4] == 0) {
+                    frounumber++
+                }
+            }
+            if (frounumber == 10) {
+                role_zhengfu_name_array_again_4 = ['科员及其他', '副科', '正科', '副处', '正处', '正厅', '副部', '正部']
+            } else {
+                role_zhengfu_name_array_again_4 = ['科员及其他', '副科', '正科', '副处', '正处', '副厅', '正厅', '副部', '正部']
+            }
+
+
+            role_name_array = role_zhengfu_name_array_again_1.intersect(role_zhengfu_name_array_again_2).intersect(role_zhengfu_name_array_again_3).intersect(role_zhengfu_name_array_again_4)
+
+        }
+
+
+
+        var legend_array = ['30岁以下', '31-40岁', '41-50岁', '51-59岁', '60岁及以上']
+        right_bottom_first_chart = echarts.init(document.getElementById('cont_one_1'))
+
+        right_bottom_first_chart.showLoading({text: '正在努力的读取数据中...'})
+
+        var param = data
+
+
+        var setOption = {
+            color: ['#7F11C1', '#A820C6', '#C95AE4', '#0083C1', '#3270FF', '#0045DF'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: legend_array,
+                itemGap: 3,
+                textStyle: {
+                    color: '#f1f1f1',
+                    fontSize: 12
+                },
+                itemHeight: 12,
+                itemWidth: 12
+            },
+            grid: {
+                top: 30,
+                bottom: 10,
+                left: 10,
+                right: 15,
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                axisLine: {
+                    lineStyle: {
+                        color: '#0087ED',
+                        width: 1
+                    }
+                },
+                min: 0,
+                max: 100,
+                axisLabel: {
+                    interval: 'auto',
+                    formatter: '{value}%',
+                    textStyle: {
+                        fontSize: 12// 让字体变大
+                    }
+                },
+                splitLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: true,
+                    length: 3,
+                    lineStyle: {
+                        opacity: 0.5
+                    }
+                },
+                show: true
+            },
+            yAxis: {
+                type: 'category',
+                data: role_name_array,
+                axisLine: {
+                    lineStyle: {
+                        color: '#0087ED',
+                        width: 1
+                    }
+                },
+                axisTick: {
+                    show: true,
+                    length: 3,
+                    lineStyle: {
+                        opacity: 0.5
+                    }
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    interval: 0,
+                    rotate: 0,        //字体倾斜
+                    textStyle: {
+                        fontSize: 12// 让字体变大
+                    }
+                }
+            },
+            series: [
+                {
+                    name: legend_array[0],
+                    type: 'bar',
+                    stack: '总量',
+                    barWidth: 12,
+                    label: {
+                        normal: {
+                            position: 'insideRight'
+                        }
+                    },
+                    data: param.be30
+                },
+                {
+                    name: legend_array[1],
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            position: 'insideRight'
+                        }
+                    },
+                    data: param.be40
+                },
+                {
+                    name: legend_array[2],
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            position: 'insideRight'
+                        }
+                    },
+                    data: param.be50
+                },
+                {
+                    name: legend_array[3],
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            position: 'insideRight'
+                        }
+                    },
+                    data: param.be60
+                },
+                {
+                    name: legend_array[4],
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            position: 'insideRight'
+                        }
+                    },
+                    data: param.gt60
+                }
+            ]
+        }
+
+        right_bottom_first_chart.setOption(setOption)
+
+        right_bottom_first_chart.hideLoading()
+    }
+
+
+    var role_name_array = ['科员及其他', '副科', '正科', '副处', '正处', '副厅', '正厅', '副部', '正部']
+
+
+    var rossidlist = []
+
+    var colsidlist = []
+
+    var peosqllist = []
+    var sqlthree = null
+
+    var colrowidnumber
+
+    var number
+
+
+    var sqlwhereone
+
+
+    function clickopenpeo(colsid, rowsid, name, val, ID) {
+        colrowidnumber = 0
+        number = 0
+
+        rossidlist = rowsid.split(",");
+
+        colsidlist = colsid.split(",");
+        colrowidnumber = parseInt(rossidlist.length)*parseInt(colsidlist.length)
+
+        var sql_arr = []
+        if (val != 0) {
+            for (i = 0; i < rossidlist.length; i++) {
+                for (a = 0; a < colsidlist.length; a++) {
+                    selectSql(converFcrySql(colsidlist[a], rossidlist[i]), function (ret, err) {
+                        var sql = ret.data[0].DRILLSQL;
+                        var newsql = sql.replace(/\"/g, "'");
+                        var sqlone = newsql.substring(newsql.lastIndexOf("@FIELDS@") + 9, newsql.lastIndexOf("AND"));
+
+                        var pjsqlone = sqlone.substring(0, sqlone.lastIndexOf("AND") + 3);
+                        //   pjsqltwo = newsql.substring(newsql.lastIndexOf(")") + 1, newsql.lastIndexOf(","));
+
+                        sqlwhereone = newsql.substring(newsql.lastIndexOf("@FIELDS@") + 9, newsql.lastIndexOf("WHERE") + 6);
+
+                        var sqlwhere = sqlone.substring(sqlone.lastIndexOf("WHERE") + 6, sqlone.lastIndexOf("AND"));
+
+                        sql_arr.push(sqlwhere)
+                        number++
+
+                        if(number == colrowidnumber ){
+
+                            var comsql = ''
+                            for (i = 0; i < sql_arr.length; i++) {
+                                comsql += "(" + sql_arr[i] + ") OR "
+
+                            }
+                            comsql = "(" + comsql.substr(0, comsql.length - 3) + ") and"
+
+                            if (judgeIsAnyNullStr(ID)) {
+                                sqlthree = "select RS_A01.ID ID, A0101, (CASE WHEN A0104 = 1 THEN '男'else'女'end) A0104, age, a0140, (SELECT NAME FROM DIC_RS_GB3304 WHERE CODE = A0117) A0117, A0192, (SELECT NAME FROM DIC_rs_Zb09 where code = A0172) A0172 " + sqlwhereone + comsql + " (RS_A01.NID like '" + place_code + "%') " + "order by rs_a01.aorder "
+                            } else {
+                                sqlthree = "select RS_A01.ID ID, A0101, (CASE WHEN A0104 = 1 THEN '男'else'女'end) A0104, age, a0140, (SELECT NAME FROM DIC_RS_GB3304 WHERE CODE = A0117) A0117, A0192, (SELECT NAME FROM DIC_rs_Zb09 where code = A0172) A0172 " + sqlwhereone + comsql + " (RS_A01.NID like '" + ID + "%') " + "order by rs_a01.aorder "
+
+                            }
+
+
+                            var item = {
+                                sql: sqlthree,
+                                name: name
+                            }
+                            comOpenWin('dwpeolist_win', '../dwlist/', item, 2);
+
+
+                        }
+
+                    })
+                }
+            }
+
+        }
+    }
+
+
+
+    function cleanarr() {
+        peosqllist = []
+        sqlthree = null
+    }
+
+
+
+    function converFcrySql(colsid, rowsid) {
+        var sql = "SELECT * FROM GWY_RPT_LD_NODESQL WHERE  ROWSID='" + rowsid + "' AND COLSID='" + colsid + "' AND RPTABLEID='JT2017001';"
+        return sql
+    }
+</script>
+</html>

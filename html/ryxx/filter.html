@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>人员信息</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/layoutone.css"/>
+    <style>
+       html,body {
+            font-family: "Microsoft YaHei", 微软雅黑;
+            font-size: 10px;
+            background:rgba(0,0,0,0);
+
+        }
+
+
+        .butt-style {
+            width: 40%;
+            height: 30px;
+            line-height: 30px;
+            margin: 0 auto;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .butt-style-butt {
+            width: 26%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 4px;
+            background-color: #1F3379;
+            color: #C7DFF8;
+            font-size: 13px;
+        }
+
+        /*去掉overflow滚动条*/
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .formy-input::-moz-placeholder {
+            color: transparent;
+            opacity: 1
+        }
+
+        .aui-bar {
+            position: relative;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            min-height: 2.25rem;
+            font-size: 0.9rem;
+            text-align: center;
+            display: table;
+        }
+
+        .aui-bar-nav {
+            top: 0;
+            line-height: 2.25rem;
+            background-color: #03a9f4;
+            color: #ffffff;
+        }
+
+        .aui-title a {
+            color: inherit;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="renywapper">
+
+    <div class="ren_k">
+
+        <div style="width: 100%;height: 96%;overflow: auto;">
+
+            <div class="renxuanze">
+                <div class="line">
+                    <div class="leftj"></div>
+                    <div class="xuanzj">&nbsp;</div>
+                    <div class="rightj"></div>
+                </div>
+
+
+                <ul id="top-message-content">
+                    <li id="top-name-message-content" onclick="clickAllCity();">
+
+                    </li>
+                </ul>
+
+
+
+                <!--<div style="float: right;width: 30%;height: 40px;background-color: #dd191b;position: absolute;top:5px;right: 10px">-->
+                    <!--<input id="cityname" type="text" style="width: 100%;height: 40px"-->
+                           <!--class="aui-margin-l-15 dark-font"-->
+                           <!--placeholder="请输入单位名称">-->
+                    <!--<div style="width: 20%;height: 40px;position: absolute;top:0;right: 0;background-color: #673ab7"-->
+                         <!--onclick="clicksearch()"></div>-->
+                <!--</div>-->
+
+            </div>
+
+
+            <div class="xuanzekh">
+
+                <div class="tuceng noleft">
+                    <ul id="city-message-content">
+
+                    </ul>
+                </div>
+
+
+                <div class="shaix">
+                <div class="linex"></div>
+                </div>
+
+                <!--<div class="shaix">-->
+                    <!--<div class="linex"></div>-->
+                    <!--<div class="leftbt"><span class="tips">常用筛选</span><span>固定条件</span></div>-->
+                <!--</div>-->
+
+
+                <div class="xuantips" style="display:block">
+
+                    <div class="xbiaoti">人员姓名：</div>
+                    <div class="tuceng">
+                        <input type="text" class="formy-input" name="name" id="inameval"
+                               placeholder="请输入姓名拼音或汉字"/>
+                    </div>
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">身份证号：</div>
+                    <div class="tuceng">
+                        <input type="number" class="formy-input" name="name" id="sfzh" placeholder="请输入身份证号"/>
+                    </div>
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">职务名称：</div>
+                    <div class="tuceng">
+                        <input type="text" class="formy-input" name="name" id="zwmc" placeholder="请输入职务名称"/>
+                    </div>
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">简历信息：</div>
+                    <div class="tuceng">
+                        <input type="text" class="formy-input" name="name" id="jl" placeholder="请输入简历信息"/>
+                    </div>
+
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">女少非：</div>
+                    <div class="tuceng">
+                        <ul id="nsf-message-content">
+
+                        </ul>
+                    </div>
+
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">民族：</div>
+                    <div class="tuceng">
+                        <ul id="mz-message-content">
+
+                        </ul>
+                    </div>
+
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">学历：</div>
+                    <div class="tuceng">
+                        <ul id="xl-message-content">
+
+                        </ul>
+                    </div>
+
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">职务层级：</div>
+                    <div class="tuceng">
+                        <ul id="zwcj-message-content">
+
+                        </ul>
+                    </div>
+
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">年龄：</div>
+                    <div class="tuceng"> 从
+                        <input type="number" class="formy-input input_ages" id="minold"/>
+                        至
+                        <input type="number" class="formy-input input_ages" id="maxold"/>
+                        岁 <span class="bt" >任现职务层次年限：</span> 从
+                        <input type="number" class="formy-input input_ages" id="minjobyear"/>
+                        至
+                        <input type="number" class="formy-input input_ages" id="maxjobyear"/>
+                        年
+                    </div>
+
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">任现职级年限：</div>
+                    <div class="tuceng"> 从
+                        <input type="number" class="formy-input input_ages" id="minzjyear"/>
+                        至
+                        <input type="number" class="formy-input input_ages" id="maxzjyear"/>
+                        年
+                    </div>
+
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">入党时间：</div>
+                    <div class="tuceng"> 从
+                        <input type="number" class="formy-input input_ages_one" id="minrdyear"/>
+                        至
+                        <input type="number" class="formy-input input_ages_one" id="maxrdyear"/>
+                        年 <span class="bt">参加工作时间：</span> 从
+                        <input type="number" class="formy-input input_ages_one" id="mincjgzyear"/>
+                        至
+                        <input type="number" class="formy-input input_ages_one" id="maxcjgzyear"/>
+                        年
+                    </div>
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">学位：</div>
+                    <div class="tuceng">
+                        <ul id="xw-message-content">
+
+                        </ul>
+                    </div>
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">人员管理状态：</div>
+                    <div class="tuceng">
+                        <ul id="rygl-message-content">
+
+                        </ul>
+                    </div>
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">任职状态：</div>
+                    <div class="tuceng">
+                        <ul id="rzzt-message-content">
+
+                        </ul>
+                    </div>
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">成员类别：</div>
+                    <div class="tuceng">
+                        <ul id="cylb-message-content">
+
+                        </ul>
+                    </div>
+
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">是否领导成员：</div>
+                    <div class="tuceng">
+                        <ul id="sfld-message-content">
+
+                        </ul>
+                    </div>
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">是否领导职务：</div>
+                    <div class="tuceng">
+                        <ul id="ldzw-message-content">
+
+                        </ul>
+                    </div>
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">年度考核：</div>
+                    <div class="tuceng">
+                        <ul id="ndkh-message-content">
+
+                        </ul>
+                    </div>
+
+                    <div class="cls jiangeline"></div>
+                    <div class="xbiaoti">考核结论类：</div>
+                    <div class="tuceng">
+                        <ul id="khjl-message-content">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer style="width: 100%;height: 40px;position: fixed;bottom: 0;background-color: #0c1a38;z-index: 99">
+
+    <div class="butt-style">
+        <div class="butt-style-butt" style="float: left" onclick="clicksure()">确定</div>
+        <div class="butt-style-butt" style="float: right" onclick="cleanarr();">重置</div>
+    </div>
+
+
+
+    <!--<div class="butt-style" style="width: 30%;position: relative">-->
+        <!--<input id="savename" type="text" style="width: 100%;height: 30px;position: absolute"-->
+               <!--class="aui-margin-l-15 dark-font"-->
+               <!--placeholder="请输入单位名称">-->
+        <!--<div style="width: 20%;height: 30px;position: absolute;top:0;right: 0;background-color: #673ab7"-->
+             <!--onclick="clicksave()"></div>-->
+    <!--</div>-->
+
+
+</footer>
+
+
+
+<script id="xw-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="xw{{=it[i].value}}" data-value="{{=it[i].ziduan}} {{=it[i].where}} or " class="xw"
+        onclick="clickxw('{{=it[i].value}}')">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+
+
+<script id="rygl-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="rygl{{=it[i].value}}" data-value="{{=it[i].ziduan}} {{=it[i].where}} or " class="rygl"
+        onclick="clickrygl('{{=it[i].value}}')">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+<script id="rzzt-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="rzzt{{=it[i].value}}" data-value="{{=it[i].ziduan}} {{=it[i].where}} or " class="rzzt"
+        onclick="clickrzzt('{{=it[i].value}}')">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+
+
+
+<script id="cylb-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="cylb{{=it[i].value}}" data-value="{{=it[i].ziduan}} {{=it[i].where}} or " class="cylb"
+        onclick="clickcylb('{{=it[i].value}}')">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+<script id="sfld-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="sfld{{=it[i].value}}" data-value="{{=it[i].ziduan}} {{=it[i].where}} or " class="sfld"
+        onclick="clicksfld('{{=it[i].value}}')">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+<script id="ldzw-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="ldzw{{=it[i].value}}" data-value="{{=it[i].ziduan}} {{=it[i].where}} or " class="ldzw"
+        onclick="clickldzw('{{=it[i].value}}')">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+<script id="nsf-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="nsf{{=it[i].value}}" data-value="{{=it[i].ziduan}} {{=it[i].where}} and " class="nsf"
+        onclick="clickNsf('{{=it[i].value}}')">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+<script id="mz-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="mz{{=it[i].value}}" data-value="{{=it[i].ziduan}} {{=it[i].where}} or " class="mz"
+        onclick="clickMz('{{=it[i].value}}');">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+<script id="xl-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="xl{{=it[i].value}}" data-value="{{=it[i].ziduan}} {{=it[i].where}} or " class="xl"
+        onclick="clickXl('{{=it[i].value}}');">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+<script id="zwcj-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="zwcj{{=it[i].value}}" data-value="{{=it[i].ziduan}} or " class="zwcj"
+        onclick="clickZwcj('{{=it[i].value}}');">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+
+<script id="ndkh-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="ndkh{{=it[i].value}}" data-value="{{=it[i].ziduan}}{{=it[i].where}}," class="ndkh"
+        onclick="clickndkh('{{=it[i].value}}');">
+        {{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+<script id="khjl-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="khjl{{=it[i].value}}" data-value="{{=it[i].ziduan}}{{=it[i].where}}," class="khjl"
+        onclick="clickkhjl('{{=it[i].value}}');">{{=it[i].name}}
+    </li>
+    {{}}}
+</script>
+
+
+
+<script id="city-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <li id="city{{=i}}" data-value="{{=it[i].ID}}" data-sid="{{=it[i].SID}}" class="city"
+        onclick="clickCity('{{=i}}','{{=it[i].NAME}}','{{=it[i].ID}}');">{{=it[i].NAME}}
+    </li>
+    {{}}}
+</script>
+
+
+
+<script id="top-message-content-template" type="text/x-dot-template">
+    <li id="top_{{=it.numb}}" data-value="{{=it.ID}}" city-name="{{=it.NAME}}"
+        class="cleancity" onclick="clickTop('{{=it.numb}}');">{{=it.NAME}}
+    </li>
+</script>
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript">
+
+
+    var where = 0
+
+    var mysql = "SELECT ID,NAME FROM RS_UNMK WHERE SID='" + where + "' ORDER BY SYSUMPORDER  "
+
+    var topnamesql = "select name from rs_unmk where id='0' ORDER BY SYSUMPORDER "
+
+    apiready = function () {
+
+        $api.rmStorage('id_arr')
+
+        openlibrary()
+
+
+        selectSql(topnamesql, function (ret, err) {
+            if (ret.status) {
+                topname = ret.data[0].NAME
+
+                $("#top-name-message-content").text(topname);
+
+            }
+        })
+
+        var interText = doT.template($("#xw-message-content-template").text());
+        $("#xw-message-content").html(interText(xw));
+
+
+        var interText = doT.template($("#rygl-message-content-template").text());
+        $("#rygl-message-content").html(interText(rygl));
+
+        var interText = doT.template($("#rzzt-message-content-template").text());
+        $("#rzzt-message-content").html(interText(rzzt));
+
+
+        var interText = doT.template($("#cylb-message-content-template").text());
+        $("#cylb-message-content").html(interText(cylb));
+
+        var interText = doT.template($("#sfld-message-content-template").text());
+        $("#sfld-message-content").html(interText(sfld));
+
+        var interText = doT.template($("#ldzw-message-content-template").text());
+        $("#ldzw-message-content").html(interText(ldzw));
+
+        var interText = doT.template($("#nsf-message-content-template").text());
+        $("#nsf-message-content").html(interText(nsf));
+
+
+        var interText = doT.template($("#mz-message-content-template").text());
+        $("#mz-message-content").html(interText(mz))
+
+        var interText = doT.template($("#xl-message-content-template").text());
+        $("#xl-message-content").html(interText(xl))
+
+        var interText = doT.template($("#zwcj-message-content-template").text());
+        $("#zwcj-message-content").html(interText(zwcj))
+
+        var interText = doT.template($("#ndkh-message-content-template").text());
+        $("#ndkh-message-content").html(interText(ndkh))
+
+        var interText = doT.template($("#khjl-message-content-template").text());
+        $("#khjl-message-content").html(interText(khjl))
+
+
+
+        api.addEventListener({
+            name: 'loadnew2'
+        }, function (ret, err) {
+            consoledebug.log('addEventListener >>> OPENDB ret is : ' + JSON.stringify(ret))
+            cleanarr()
+            cleanidarr()
+            $api.rmStorage('id_arr')
+
+
+        })
+    }
+
+
+    var topname = ''
+
+    function openlibrary() {
+        var fs = api.require('fs');
+        var db = api.require('db')
+        //访问数据库
+        selectSql(mysql, function (ret, err) {
+            if (ret.status) {
+
+                $("#city-message-content").empty()
+                var interText = doT.template($("#city-message-content-template").text());
+                $("#city-message-content").html(interText(ret.data));
+            } else {
+
+            }
+        })
+    }
+
+
+
+    var idnumber = 0
+
+    var topcity_arr = []
+
+    var wherename = topname;
+
+
+
+    function clickCity(dom_id, name, cod) {
+
+
+         topcity_arr.push(  {NAME: topname, ID: idnumber})
+
+        wherename = $("#city" + dom_id).text()
+
+        where = $("#city" + dom_id).attr("data-value")
+
+        var sid = $("#city" + dom_id).attr('data-sid')
+
+
+
+        if (!search_flag) {
+
+
+
+
+            idnumber++;
+            var news_sc = {NAME: name, ID: cod, numb: idnumber}
+
+            topcity_arr.push(news_sc)
+
+
+
+            var interText = doT.template($("#top-message-content-template").text());
+            $("#top-message-content").append(interText(news_sc));
+
+
+        }else {
+
+            idnumber = 0
+
+
+
+            var db = api.require('db');
+            var dw_arr = []
+            search_flag = false
+
+            dw_arr.push({ID: cod, NAME: name})
+
+            $('#top-message-content').empty()
+
+
+            for (var i = 1; i > 0; i++) {
+
+                var ret = db.selectSqlSync({
+                    name: db_name,
+                    sql: converSid(sid)
+                });
+
+                if (ret.data[0].SID == '-1') {
+                    i = -1
+                }
+                sid = ret.data[0].SID
+
+
+                dw_arr.push(ret.data[0])
+
+            }
+
+            topcity_arr = dw_arr.reverse()
+
+
+
+
+            for(i=0;i<topcity_arr.length;i++){
+
+                topcity_arr[i].numb = idnumber
+                var interText = doT.template($("#top-message-content-template").text());
+                $("#top-message-content").append(interText(topcity_arr[i]));
+
+
+                idnumber++
+
+
+            }
+
+
+        }
+
+
+        mysql = "SELECT ID,NAME FROM RS_UNMK WHERE SID='" + where + "'"
+        openlibrary()
+    }
+
+
+
+    function clickTop(dom_id) {
+
+        search_flag = false
+
+
+        idnumber = dom_id
+
+
+        for (i = 0; i < topcity_arr.length; i++) {
+            if (i > dom_id) {
+                $("#top_" + i).remove()
+            }
+        }
+
+
+        where = $("#top_" + dom_id).attr("data-value")
+
+
+        mysql = "SELECT ID,NAME FROM RS_UNMK WHERE SID='" + where + "'"
+
+        wherename = $("#top_" + dom_id).text()
+
+        openlibrary()
+    }
+
+
+    function clickAllCity() {
+        search_flag = false;
+
+
+        $(".cleancity").remove()
+        idnumber = 0
+
+        where = "0"
+
+
+        mysql = "SELECT ID,NAME FROM RS_UNMK WHERE SID='" + where + "'"
+
+        wherename = topname
+        openlibrary()
+    }
+
+
+    function clickxw(index) {
+        if (index == 1) {
+            if ($("#xw" + index).hasClass('tab-btn-active')) {
+                $(".xw").removeClass('tab-btn-active')
+            } else {
+                $(".xw").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#xw" + index).hasClass('tab-btn-active')) {
+                $("#xw1").removeClass('tab-btn-active');
+                $("#xw" + index).removeClass('tab-btn-active');
+            } else {
+                $("#xw1").removeClass('tab-btn-active');
+                $("#xw" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+
+    function clickrygl(index) {
+        if (index == 1) {
+            if ($("#rygl" + index).hasClass('tab-btn-active')) {
+                $(".rygl").removeClass('tab-btn-active')
+            } else {
+                $(".rygl").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#rygl" + index).hasClass('tab-btn-active')) {
+                $("#rygl1").removeClass('tab-btn-active');
+                $("#rygl" + index).removeClass('tab-btn-active');
+            } else {
+                $("#rygl1").removeClass('tab-btn-active');
+                $("#rygl" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+    function clickrzzt(index) {
+        if (index == 1) {
+            if ($("#rzzt" + index).hasClass('tab-btn-active')) {
+                $(".rzzt").removeClass('tab-btn-active')
+            } else {
+                $(".rzzt").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#rzzt" + index).hasClass('tab-btn-active')) {
+                $("#rzzt1").removeClass('tab-btn-active');
+                $("#rzzt" + index).removeClass('tab-btn-active');
+            } else {
+                $("#rzzt1").removeClass('tab-btn-active');
+                $("#rzzt" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+    function clickcylb(index) {
+        if (index == 1) {
+            if ($("#cylb" + index).hasClass('tab-btn-active')) {
+                $(".cylb").removeClass('tab-btn-active')
+            } else {
+                $(".cylb").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#cylb" + index).hasClass('tab-btn-active')) {
+                $("#cylb1").removeClass('tab-btn-active');
+                $("#cylb" + index).removeClass('tab-btn-active');
+            } else {
+                $("#cylb1").removeClass('tab-btn-active');
+                $("#cylb" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+    function clicksfld(index) {
+        if (index == 1) {
+            if ($("#sfld" + index).hasClass('tab-btn-active')) {
+                $(".sfld").removeClass('tab-btn-active')
+            } else {
+                $(".sfld").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#sfld" + index).hasClass('tab-btn-active')) {
+                $("#sfld1").removeClass('tab-btn-active');
+                $("#sfld" + index).removeClass('tab-btn-active');
+            } else {
+                $("#sfld1").removeClass('tab-btn-active');
+                $("#sfld" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+    function clickldzw(index) {
+        if (index == 1) {
+            if ($("#ldzw" + index).hasClass('tab-btn-active')) {
+                $(".ldzw").removeClass('tab-btn-active')
+            } else {
+                $(".ldzw").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#ldzw" + index).hasClass('tab-btn-active')) {
+                $("#ldzw1").removeClass('tab-btn-active');
+                $("#ldzw" + index).removeClass('tab-btn-active');
+            } else {
+                $("#ldzw1").removeClass('tab-btn-active');
+                $("#ldzw" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+
+    function clickNsf(index) {
+        if (index == 1) {
+            if ($("#nsf" + index).hasClass('tab-btn-active')) {
+                $(".nsf").removeClass('tab-btn-active')
+            } else {
+                $(".nsf").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#nsf" + index).hasClass('tab-btn-active')) {
+                $("#nsf1").removeClass('tab-btn-active');
+                $("#nsf" + index).removeClass('tab-btn-active');
+            } else {
+                $("#nsf1").removeClass('tab-btn-active');
+                $("#nsf" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+
+    function clickMz(index) {
+        if (index == 1) {
+            if ($("#mz" + index).hasClass('tab-btn-active')) {
+                $(".mz").removeClass('tab-btn-active')
+            } else {
+                $(".mz").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#mz" + index).hasClass('tab-btn-active')) {
+                $("#mz1").removeClass('tab-btn-active');
+                $("#mz" + index).removeClass('tab-btn-active');
+            } else {
+                $("#mz1").removeClass('tab-btn-active');
+                $("#mz" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+    function clickXl(index) {
+        if (index == 1) {
+            if ($("#xl" + index).hasClass('tab-btn-active')) {
+                $(".xl").removeClass('tab-btn-active')
+            } else {
+                $(".xl").addClass('tab-btn-active')
+            }
+        } else {
+
+            if ($("#xl" + index).hasClass('tab-btn-active')) {
+                $("#xl1").removeClass('tab-btn-active');
+                $("#xl" + index).removeClass('tab-btn-active');
+            } else {
+                $("#xl1").removeClass('tab-btn-active');
+                $("#xl" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+    function clickndkh(index) {
+        if (index == '1') {
+            if ($("#ndkh1").hasClass('tab-btn-active')) {
+                $(".ndkh").removeClass('tab-btn-active')
+            } else {
+                $(".ndkh").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#ndkh" + index).hasClass('tab-btn-active')) {
+                $("#ndkh1").removeClass('tab-btn-active');
+                $("#ndkh" + index).removeClass('tab-btn-active');
+            } else {
+                $("#ndkh1").removeClass('tab-btn-active')
+                $("#ndkh" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+
+    function clickkhjl(index) {
+        if (index == '1') {
+            if ($("#khjl1").hasClass('tab-btn-active')) {
+                $(".khjl").removeClass('tab-btn-active')
+            } else {
+                $(".khjl").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#khjl" + index).hasClass('tab-btn-active')) {
+                $("#khjl1").removeClass('tab-btn-active');
+                $("#khjl" + index).removeClass('tab-btn-active');
+            } else {
+                $("#khjl1").removeClass('tab-btn-active')
+                $("#khjl" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+
+    function clickZwcj(index) {
+
+        if (index == '1') {
+            if ($("#zwcj1").hasClass('tab-btn-active')) {
+                $(".zwcj").removeClass('tab-btn-active')
+            } else {
+                $(".zwcj").addClass('tab-btn-active')
+            }
+        } else {
+            if ($("#zwcj" + index).hasClass('tab-btn-active')) {
+                $("#zwcj1").removeClass('tab-btn-active');
+                $("#zwcj" + index).removeClass('tab-btn-active');
+            } else {
+                $("#zwcj1").removeClass('tab-btn-active')
+                $("#zwcj" + index).addClass('tab-btn-active');
+            }
+        }
+    }
+
+
+    var nsf_arr = [],
+        cylb_arr = [],
+        rygl_arr = [],
+        rzzt_arr = [],
+        mz_arr = [],
+        xl_arr = [],
+        zwcj_arr = [],
+        xw_arr = [],
+        sfld_arr = [],
+        ldzw_arr = [],
+        ndkh_arr = [],
+        khjl_arr = [],
+        minold,
+        maxold,
+        iname,
+        inameval,
+        minjobyear,
+        maxjobyear,
+        sfzh,
+        sfzhval,
+        zwmc,
+        zwmcval,
+        jl,
+        jlval,
+        minzjyear,
+        maxzjyear,
+        minrdyear,
+        maxrdyear,
+        mincjgzyear,
+        maxcjgzyear;
+
+
+    var xw_id = [],
+        cylb_id = [],
+        rygl_id = [],
+        rzzt_id = [],
+        sfld_id = [],
+        ldzw_id = [],
+        nsf_id = [],
+        mz_id = [],
+        xl_id = [],
+        ndkh_id = [],
+        khjl_id = [],
+        zwcj_id = [];
+
+    function clicksure() {
+
+        $api.rmStorage('id_arr')
+
+
+        if ($("#xw1").hasClass('tab-btn-active')) {
+            xw_arr = []
+
+        } else {
+            $(".xw").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    xw_arr.push($(this).attr("data-value"));
+                    xw_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+        if ($("#rygl1").hasClass('tab-btn-active')) {
+            rygl_arr = []
+        } else {
+            $(".rygl").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    rygl_arr.push($(this).attr("data-value"));
+                    rygl_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+
+        if ($("#rzzt1").hasClass('tab-btn-active')) {
+            rzzt_arr = []
+        } else {
+            $(".rzzt").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    rzzt_arr.push($(this).attr("data-value"));
+                    rzzt_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+
+        if ($("#cylb1").hasClass('tab-btn-active')) {
+            cylb_arr = []
+        } else {
+            $(".cylb").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    cylb_arr.push($(this).attr("data-value"));
+                    cylb_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+
+        if ($("#sfld1").hasClass('tab-btn-active')) {
+            sfld_arr = []
+        } else {
+            $(".sfld").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    sfld_arr.push($(this).attr("data-value"));
+                    sfld_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+        if ($("#ldzw").hasClass('tab-btn-active')) {
+            ldzw_arr = []
+        } else {
+            $(".ldzw").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    ldzw_arr.push($(this).attr("data-value"));
+                    ldzw_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+
+        if ($("#nsf1").hasClass('tab-btn-active')) {
+            nsf_arr = ["A0104 = '2' and ","A0117 != '01' and ","A0171 not in ('01', '02') and "]
+        } else {
+            $(".nsf").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    nsf_arr.push($(this).attr("data-value"));
+                    nsf_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+        if ($("#mz1").hasClass('tab-btn-active')) {
+            //      mz_arr = [A0104 = '2' and  A0117 != '01' and  A0171 not in ('01', '02')]
+            mz_arr = []
+        } else {
+            $(".mz").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    mz_arr.push($(this).attr("data-value"));
+                    mz_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+
+        if ($("#xl1").hasClass('tab-btn-active')) {
+            xl_arr = []
+        } else {
+            $(".xl").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    xl_arr.push($(this).attr("data-value"));
+                    xl_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+        if ($("#ndkh1").hasClass('tab-btn-active')) {
+            ndkh_arr = []
+        } else {
+            $(".ndkh").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    ndkh_arr.push($(this).attr("data-value"));
+                    ndkh_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+        if ($("#khjl1").hasClass('tab-btn-active')) {
+            khjl_arr = []
+        } else {
+            $(".khjl").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    khjl_arr.push($(this).attr("data-value"));
+                    khjl_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+        if ($("#zwcj1").hasClass('tab-btn-active')) {
+            zwcj_arr = []
+        } else {
+            $(".zwcj").each(function () {
+                if ($(this).hasClass('tab-btn-active')) {
+                    zwcj_arr.push($(this).attr("data-value"));
+                    zwcj_id.push($(this).attr("id"));
+                }
+            });
+        }
+
+
+
+        inameval = $("#inameval").val();
+        if (judgeIsAnyNullStr(inameval)) {
+            iname = ""
+        } else {
+            iname = "rs_a01.A0101" + " like '" + inameval + "%'" + " and "
+        }
+
+
+        sfzh = $("#sfzh").val();
+        if (judgeIsAnyNullStr(sfzh)) {
+            sfzhval = ""
+        } else {
+            sfzhval = "RS_A01.A0184" + " = '" + sfzh + "'" + " and "
+        }
+
+
+        zwmc = $("#zwmc").val();
+        if (judgeIsAnyNullStr(zwmc)) {
+            zwmcval = ""
+        } else {
+            zwmcval = "RS_A01.A0192A" + " like '%" + zwmc + "%'" + " and "
+        }
+
+
+        jl = $("#jl").val();
+        if (judgeIsAnyNullStr(jl)) {
+            jlval = ""
+        } else {
+            jlval = "RS_A01.A1701" + " like '%" + jl + "%'" + " and "
+        }
+
+
+
+        var iyear
+        minold = $("#minold").val();
+        maxold = $("#maxold").val();
+        if (minold > maxold) {
+            showAlert(TIP_STR, "最大年龄不能小于最小年龄");
+            return;
+        } else if (maxold == "") {
+            iyear = ""
+        } else {
+            iyear = "RS_A01.age >=" + minold + " and RS_A01.age <=" + maxold + " and "
+        }
+
+
+        var workyear;
+        minjobyear = $("#minjobyear").val();
+        maxjobyear = $("#maxjobyear").val();
+        if (minjobyear > maxjobyear) {
+            showAlert(TIP_STR, "最大年限不能小于最小年限");
+            return;
+        } else if (maxjobyear == "") {
+            workyear = ''
+        } else {
+            workyear = "RS_A01.XZYEAR >= " + minjobyear + " and RS_A01.XZYEAR <= " + maxjobyear + " and "
+        }
+
+
+        var zjyear;
+        minzjyear = $("#minzjyear").val();
+        maxzjyear = $("#maxzjyear").val();
+        if (minzjyear > maxzjyear) {
+            showAlert(TIP_STR, "最大年限不能小于最小年限");
+            return;
+        } else if (maxzjyear == "") {
+            zjyear = ''
+        } else {
+            zjyear = "RS_A01.AT003>= '" + minzjyear + "' and RS_A01.AT003<= '" + maxzjyear + "' and "
+        }
+
+
+
+        var rdyear;
+        minrdyear = $("#minrdyear").val();
+        maxrdyear = $("#maxrdyear").val();
+        if (minrdyear > maxrdyear) {
+
+        } else if (maxrdyear == "") {
+            rdyear = ''
+        } else {
+            rdyear = "RS_A01.AT0144>= " + minrdyear + " and RS_A01.AT0144<= " + maxrdyear + " and "
+        }
+
+
+        var cjgzyear;
+        mincjgzyear = $("#mincjgzyear").val();
+        maxcjgzyear = $("#maxcjgzyear").val();
+        if (mincjgzyear > maxcjgzyear) {
+
+        } else if (maxcjgzyear == "") {
+            cjgzyear = ''
+        } else {
+            cjgzyear = "RS_A01.A0134>= '" + mincjgzyear + "' and RS_A01.A0134<= '" + maxcjgzyear + "' and "
+        }
+
+
+        var cityname
+        if (nsf_arr.length == 0 && mz_arr.length == 0 && xl_arr.length == 0 && zwcj_arr.length == 0 && maxjobyear == '' && inameval == '' && maxold == '' && wherename == '全国') {
+
+            cityname = " WHERE 1=1 and "
+
+        } else {
+            if (wherename == topname) {
+                cityname = "WHERE 1=1 and "
+
+
+            } else {
+                cityname = " WHERE  RS_A02.A0201B like '" + where + "%'" + " and "
+
+
+            }
+        }
+
+
+        var xwarr
+        if (xw_arr.length <= 0) {
+            xwarr = ""
+        } else {
+            var xw = xw_arr.join(' ')
+
+            xwarr = "(" + xw.substr(0, xw.length - 3) + ") and "
+        }
+
+
+        var ryglarr
+        if (rygl_arr.length <= 0) {
+            ryglarr = ""
+        } else {
+            var rygl = rygl_arr.join(' ')
+
+            ryglarr = "(" + rygl.substr(0, rygl.length - 3) + ") and "
+        }
+
+
+
+        var rzztarr
+        if (rzzt_arr.length <= 0) {
+            rzztarr = ""
+        } else {
+            var rzzt = rzzt_arr.join(' ')
+
+            rzztarr = "(" + rzzt.substr(0, rzzt.length - 3) + ") and "
+        }
+
+
+
+        var cylbarr
+        if (cylb_arr.length <= 0) {
+            cylbarr = ""
+        } else {
+            var cylb = cylb_arr.join(' ')
+
+            cylbarr = "(" + cylb.substr(0, cylb.length - 3) + ") and "
+        }
+
+
+
+        var sfldarr
+        if (sfld_arr.length <= 0) {
+            sfldarr = ""
+        } else {
+            var sfld = sfld_arr.join(' ')
+
+            sfldarr = "(" + sfld.substr(0, sfld.length - 3) + ") and "
+        }
+
+
+
+        var ldzwarr
+        if (ldzw_arr.length <= 0) {
+            ldzwarr = ""
+        } else {
+            var ldzw = ldzw_arr.join(' ')
+
+            ldzwarr = "(" + ldzw.substr(0, ldzw.length - 3) + ") and "
+        }
+
+
+        var nsfarr
+        if (nsf_arr.length <= 0) {
+            nsfarr = ""
+        } else {
+            var nsf = nsf_arr.join(' ')
+
+            nsfarr = "(" + nsf.substr(0, nsf.length - 4) + ") and "
+
+        }
+
+
+        var mzarr
+        if (mz_arr.length <= 0) {
+            mzarr = ""
+        } else {
+            var mz = mz_arr.join(' ')
+
+            mzarr = "(" + mz.substr(0, mz.length - 3) + ") and "
+        }
+
+
+        var xlarr
+        if (xl_arr.length <= 0) {
+            xlarr = ""
+        } else {
+            var xl = xl_arr.join(' ')
+
+            xlarr = "(" + xl.substr(0, xl.length - 3) + ") and "
+        }
+
+
+
+        var ndkharr
+        if (ndkh_arr.length <= 0) {
+            ndkharr = null
+        } else {
+            var ndkh = ndkh_arr.join(' ')
+
+            ndkharr = " and RS_A15.A1521 IN (" + ndkh.substr(0, ndkh.length - 1) + ")"
+        }
+
+
+
+        var khjlarr
+        if (khjl_arr.length <= 0) {
+            khjlarr = null
+        } else {
+            var khjl = khjl_arr.join(' ')
+
+            khjlarr = " and RS_A15. A1517 IN (" + khjl.substr(0, khjl.length - 1) + ")"
+        }
+
+
+        var khpj
+        if (ndkharr == null && khjlarr == null) {
+            khpj = ""
+        } else if (khjlarr == null) {
+            khpj = "(exists (select 1 from rs_a15 where RS_A01.ID =RS_A15.SID" + ndkharr + ")) and"
+        } else if (ndkharr == null) {
+            khpj = "(exists (select 1 from rs_a15 where RS_A01.ID =RS_A15.SID" + khjlarr + ")) and"
+        } else {
+            khpj = "(exists (select 1 from rs_a15 where RS_A01.ID =RS_A15.SID" + ndkharr + khjlarr + ")) and"
+        }
+
+
+
+        var zwcjarr
+        if (zwcj_arr.length <= 0) {
+            zwcjarr = ""
+        } else {
+            var zwcj = zwcj_arr.join(' ')
+            consoledebug.log('职务层次0: ' + JSON.stringify(zwcj))
+            zwcjarr = "(" + zwcj.substr(0, zwcj.length - 3) + ") and "
+        }
+        consoledebug.log('职务层次: ' + JSON.stringify(zwcjarr))
+
+        var isql = "SELECT DISTINCT RS_A01.A0101 A0101, RS_A01.A0104 A0104,RS_A01.A0107 A0107,RS_A01.A0134 A0134,(SELECT NAME FROM DIC_RS_GB3304 WHERE CODE=RS_A01.A0117 ) A0117,RS_A01.A0192A  A0192A,(select name from dic_rs_zb09  where code=RS_A01.A0172  )  A0172, RS_A01.QRZXW QRZXW,RS_A01.ZZXW ZZXW,RS_A01.ZGXW ZGXW,RS_A01.ZZXL ZZXL,RS_A01.ZGXL  ZGXL,RS_A01.A0184 A0184,RS_A01.ID ID, RS_A01.A0140 A0140,RS_A01.A0192 A0192,RS_A01.AORDER AORDER FROM RS_A01 LEFT JOIN RS_A02 ON RS_A01.ID = RS_A02.SID LEFT JOIN RS_A15 ON RS_A01.ID = RS_A15.SID     " + cityname + iname + sfzhval + zwmcval + jlval + iyear + workyear + zjyear + rdyear + cjgzyear + xwarr + ryglarr + rzztarr + cylbarr + khpj + nsfarr + sfldarr + ldzwarr + mzarr + xlarr + zwcjarr;
+
+
+        //用于页面里城市切换
+
+        var pjmysqlone = "SELECT DISTINCT RS_A01.A0101 A0101, RS_A01.A0104 A0104,RS_A01.A0107 A0107, RS_A01.A0134 A0134,(SELECT NAME FROM DIC_RS_GB3304 WHERE CODE=RS_A01.A0117 ) A0117,RS_A01.A0192A  A0192A,(select name from dic_rs_zb09  where code=RS_A01.A0172  )  A0172, RS_A01.QRZXW QRZXW,RS_A01.ZZXW ZZXW,RS_A01.ZGXW ZGXW,RS_A01.ZZXL ZZXL,RS_A01.ZGXL  ZGXL,RS_A01.A0184 A0184,RS_A01.ID ID, RS_A01.A0140 A0140,RS_A01.A0192 A0192,RS_A01.AORDER AORDER FROM RS_A01 LEFT JOIN RS_A02 ON RS_A01.ID = RS_A02.SID LEFT JOIN RS_A15 ON RS_A01.ID = RS_A15.SID    "
+
+
+        var pjmysqltwo = iname + sfzhval + zwmcval + jlval + iyear + workyear + zjyear + rdyear + cjgzyear + xwarr + ryglarr +rzztarr + cylbarr + khpj + nsfarr + sfldarr + ldzwarr + mzarr + xlarr + zwcjarr
+
+        var pjsql = isql.substr(0, isql.length - 4)
+
+
+        var y = 0;
+        var count = 100;
+        var num = y * count;
+
+        isql = isql.substr(0, isql.length - 4) + " order by rs_a01.aorder limit " + count + " offset " + num + "";
+
+
+
+
+        var city_arr = [{NAME: topname, ID: 0, numb: -1}]
+        var number = 0
+        $(".cleancity").each(function () {
+
+
+            var obj = {NAME: $(this).attr("city-name"), ID: $(this).attr("data-value"), numb: number}
+
+            city_arr.push(obj)
+            number++;
+        });
+
+
+
+        id_arr = {
+            xw_id: xw_id,
+            rygl_id: rygl_id,
+            rzzt_id: rzzt_id,
+            cylb_id: cylb_id,
+            sfld_id: sfld_id,
+            ldzw_id: ldzw_id,
+            nsf_id: nsf_id,
+            mz_id: mz_id,
+            xl_id: xl_id,
+            ndkh_id: ndkh_id,
+            khjl_id: khjl_id,
+            zwcj_id: zwcj_id,
+            minold: minold,
+            maxold: maxold,
+            inameval: inameval,
+            minjobyear: minjobyear,
+            maxjobyear: maxjobyear,
+            sfzh: sfzh,
+            zwmc: zwmc,
+            jl: jl,
+            minzjyear: minzjyear,
+            maxzjyear: maxzjyear,
+            minrdyear: minrdyear,
+            maxrdyear: maxrdyear,
+            mincjgzyear: mincjgzyear,
+            maxcjgzyear: maxcjgzyear
+        }
+
+        $api.setStorage('id_arr', id_arr);
+
+
+        if (clicktype) {
+
+
+            $api.setStorage('id_arr', id_arr);
+
+            var item = {
+                pjsql: pjsql,
+                mysql: isql,
+                citylist: city_arr,
+                cityname: cityname,
+                mysqlone: pjmysqlone,
+                mysqltwo: pjmysqltwo
+                // id_arr:id_arr
+            };
+
+            cleanArr_first()
+            comOpenWin('peoplelist_win', './', item, 2)
+        }
+        clicktype = true
+
+    }
+
+    var id_arr
+
+
+    function cleanarr() {
+        $api.rmStorage('id_arr')
+        wherename = topname
+        $(".zwcj").removeClass('tab-btn-active')
+        $(".xl").removeClass('tab-btn-active')
+        $(".mz").removeClass('tab-btn-active')
+        $(".nsf").removeClass('tab-btn-active')
+        $(".xw").removeClass('tab-btn-active')
+        $(".rygl").removeClass('tab-btn-active')
+        $(".rzzt").removeClass('tab-btn-active')
+        $(".cylb").removeClass('tab-btn-active')
+        $(".sfld").removeClass('tab-btn-active')
+        $(".ldzw").removeClass('tab-btn-active')
+        $(".ndkh").removeClass('tab-btn-active')
+        $(".khjl").removeClass('tab-btn-active')
+        ldzw_arr = []
+        sfld_arr = []
+        xw_arr = []
+        rygl_arr = []
+        rzzt_arr = []
+        cylb_arr = []
+        nsf_arr = []
+        mz_arr = []
+        xl_arr = []
+        zwcj_arr = []
+        ndkh_arr = []
+        khjl_arr = []
+        $("#minjobyear").val('')
+        $("#maxjobyear").val('')
+        $("#inameval").val('')
+        $("#minold").val('')
+        $("#maxold").val('')
+        $("#sfzh").val('')
+        $("#zwmc").val('')
+        $("#jl").val('')
+        $("#minzjyear").val('')
+        $("#maxzjyear").val('')
+        $("#minrdyear").val('')
+        $("#maxrdyear").val('')
+        $("#mincjgzyear").val('')
+        $("#maxcjgzyear").val('')
+        $(".cleancity").remove()
+        idnumber = 0
+        clickAllCity()
+        xw_id = []
+        rygl_id = []
+        rzzt_id = []
+        cylb_id = []
+        sfld_id = []
+        ldzw_id = []
+        nsf_id = []
+        mz_id = []
+        xl_id = []
+        ndkh_id = []
+        khjl_id = []
+        zwcj_id = []
+    }
+
+
+   function cleanArr_first() {
+       ldzw_arr = []
+       sfld_arr = []
+       xw_arr = []
+       rygl_id = []
+       rzzt_arr = []
+       cylb_arr = []
+       nsf_arr = []
+       mz_arr = []
+       xl_arr = []
+       zwcj_arr = []
+       ndkh_arr = []
+       khjl_arr = []
+       $("#minjobyear").val('')
+       $("#maxjobyear").val('')
+       $("#inameval").val('')
+       $("#minold").val('')
+       $("#maxold").val('')
+       $("#sfzh").val('')
+       $("#zwmc").val('')
+       $("#jl").val('')
+       $("#minzjyear").val('')
+       $("#maxzjyear").val('')
+       $("#minrdyear").val('')
+       $("#maxrdyear").val('')
+       $("#mincjgzyear").val('')
+       $("#maxcjgzyear").val('')
+       $(".cleancity").remove()
+       idnumber = 0
+       clickAllCity()
+       xw_id = []
+       rygl_id = []
+       rzzt_id = []
+       cylb_id = []
+       sfld_id = []
+       ldzw_id = []
+       nsf_id = []
+       mz_id = []
+       xl_id = []
+       ndkh_id = []
+       khjl_id = []
+       zwcj_id = []
+   }
+
+
+    function cleanidarr() {
+        $api.rmStorage('id_arr')
+        xw_id = []
+        rzzt_id = []
+        cylb_id = []
+        sfld_id = []
+        ldzw_id = []
+        nsf_id = []
+        mz_id = []
+        xl_id = []
+        ndkh_id = []
+        khjl_id = []
+        zwcj_id = []
+
+        ldzw_arr = []
+        sfld_arr = []
+        xw_arr = []
+        rzzt_arr = []
+        cylb_arr = []
+        nsf_arr = []
+        mz_arr = []
+        xl_arr = []
+        zwcj_arr = []
+        ndkh_arr = []
+        khjl_arr = []
+    }
+
+
+
+
+
+
+
+
+
+
+    //   -------------------------------------------------------
+
+    function converSid(sid) {
+        var sql = "select sid,id,name from rs_unmk where id='" + sid + "'"
+        return sql
+    }
+
+    function converPlaceName(cityname) {
+        var sql = "select SID,id,name from rs_unmk  where name like '" + cityname + "%'"
+        return sql
+    }
+
+
+
+
+
+
+    var search_flag = false;
+
+
+    function clicksearch() {
+        search_flag = true
+
+        var cityname = $('#cityname').val()
+
+        $("#city-message-content").empty()
+
+        selectSql(converPlaceName(cityname), function (ret, err) {
+
+            if (ret.status) {
+                var data = ret.data
+
+                var interText = doT.template($("#city-message-content-template").text());
+                $("#city-message-content").html(interText(ret.data));
+
+            }
+        })
+
+    }
+
+
+
+
+
+    var clicktype = true
+
+    function clicksave() {
+
+        clicktype = false
+
+        var name = $("#savename").val()
+
+        clicksure()
+        $api.setStorage(name, id_arr);
+
+        consoledebug.log('预备储存预选项功能:' + JSON.stringify(id_arr));
+
+
+    }
+
+
+    //获取
+    //msgObj = $api.getStorage("localtext")
+</script>
+</html>
+
+

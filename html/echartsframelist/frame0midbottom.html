@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/layoutnew.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <style>
+        html, body {
+            height: 100%;
+            background:url(../../images/bac.png) no-repeat;
+        }
+
+
+
+    </style>
+</head>
+<body ondblclick="closeFrame()">
+
+
+<div class="aui-bar-nav-new" style="z-index: 99;position: fixed;top: 0">
+    <div class="aui-pull-left" onclick="closeFrame();">
+        <span class="icon iconfont icon-back">返回</span>
+    </div>
+    <span>各职务层次人数比例</span>
+
+    <div class="aui-pull-right" style="color: transparent ">
+        <span class="icon iconfont icon-back">占位</span>
+    </div>
+</div>
+
+<div style="width: 100%;height: 99%;margin:0 auto;padding:3%;overflow: auto;">
+
+    <div class="echartstwo">
+
+        <div id="container" class="echartsfour">
+
+        </div>
+
+
+    </div>
+
+
+
+    <table id="message-content" border="0" class="table_rylb conytb">
+
+    </table>
+
+
+
+</div>
+
+
+<script id="message-content-template" type="text/x-dot-template">
+    <thead>
+    <tr>
+        <th style="width: 10%">年龄</th>
+        <th style="width: 10%">正部</th>
+        <th style="width: 10%">副部</th>
+        <th style="width: 10%">正厅</th>
+        <th style="width: 10%">副厅</th>
+        <th style="width: 10%">正处</th>
+        <th style="width: 10%">副处</th>
+        <th style="width: 10%">正科</th>
+        <th style="width: 10%">副科</th>
+        <th style="width: 10%">科员及其他</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <tr class="bj">
+
+        <td>{{=it[i][9]}}</td>
+
+        {{? it[i][0]==null}}
+        <td>0</td>
+        {{??}}
+        <td  onclick="clickopenpeo('{{=it[i][10]}}','2','{{=it[i][9]}}','{{=it[i][0]}}')">{{=it[i][0]}}</td>
+        {{?}}
+
+        {{? it[i][1]==null}}
+        <td>0</td>
+        {{??}}
+        <td  onclick="clickopenpeo('{{=it[i][10]}}','3','{{=it[i][9]}}','{{=it[i][1]}}')">{{=it[i][1]}}</td>
+        {{?}}
+
+        {{? it[i][2]==null}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','4,5','{{=it[i][9]}}','{{=it[i][2]}}')">{{=it[i][2]}}</td>
+        {{?}}
+
+        {{? it[i][3]==null}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','6,7','{{=it[i][9]}}','{{=it[i][3]}}')">{{=it[i][3]}}</td>
+        {{?}}
+
+        {{? it[i][4]==null}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','8,9','{{=it[i][9]}}','{{=it[i][4]}}')">{{=it[i][4]}}</td>
+        {{?}}
+
+        {{? it[i][5]==null}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','10,11','{{=it[i][9]}}','{{=it[i][5]}}')">{{=it[i][5]}}</td>
+        {{?}}
+
+        {{? it[i][6]==null}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','12,13','{{=it[i][9]}}','{{=it[i][6]}}')">{{=it[i][6]}}</td>
+        {{?}}
+
+        {{? it[i][7]==null}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','14,15','{{=it[i][9]}}','{{=it[i][7]}}')">{{=it[i][7]}}</td>
+        {{?}}
+
+        {{? it[i][8] == null}}
+        <td>0</td>
+        {{??}}
+        <td onclick="clickopenpeo('{{=it[i][10]}}','16,17,18','{{=it[i][9]}}','{{=it[i][8]}}')">{{=it[i][8]}}</td>
+        {{?}}
+    </tr>
+    {{}}}
+    </tbody>
+</script>
+
+
+
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/scriptabxz.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript" src="../../script/echarts.min.js"></script>
+<script type="text/javascript">
+
+    var place_code
+    apiready = function () {
+        var pageParam = api.pageParam.item.containe_arr;
+        place_code = api.pageParam.item.place_code
+        consoledebug.log(JSON.stringify(pageParam));
+
+        showMiddleBottomChart(pageParam)
+
+        pageParam.be30.push('30及以下')
+        pageParam.be30.push('21,22,23')
+        pageParam.gt30lt35.push('31-40')
+        pageParam.gt30lt35.push('24,25')
+        pageParam.gt40lt45.push('41-50')
+        pageParam.gt40lt45.push('26,27')
+        pageParam.gt50lt55.push('51-59')
+        pageParam.gt50lt55.push('28,29')
+        pageParam.gt60.push('60岁及以上')
+        pageParam.gt60.push('30')
+        var list_arr = []
+        list_arr[0] = pageParam.be30
+        list_arr[1] = pageParam.gt30lt35
+        list_arr[2] = pageParam.gt40lt45
+        list_arr[3] = pageParam.gt50lt55
+        list_arr[4] = pageParam.gt60
+
+        var interText = doT.template($("#message-content-template").text());
+        $("#message-content").html(interText(list_arr));
+
+
+        $(document).ready(function () {
+            $("table").attr("bgColor", "#0c1a38");
+            $("tr").attr("bgColor", "#3366CC");
+            $("tr:even").css("background-color", "#0c1a38");
+
+        });
+
+        api.addEventListener({
+            name: 'cleanarr'
+        }, function (ret, err) {
+            cleanarr()
+        })
+
+
+    };
+
+
+    var role_zhengfu_name_array_rwo = ['正部', '副部', '正厅', '副厅', '正处', '副处', '正科', '副科', '科员及其他']
+
+    function showMiddleBottomChart(data) {
+        middle_bottom_chart = echarts.init(document.getElementById('container'))
+
+        middle_bottom_chart.showLoading({text: '正在努力的读取数据中...'})
+        var param = data
+
+        var setOption = {
+
+            color: ['#0E51CD', '#0F5DD3', '#118DEC', '#13AEFD', '#59C9FF', '#D87A80'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+
+                data: ["30岁及以下", "31-40", "41-50", "51-59", "60岁及以上", "平均年龄"],
+                itemGap: 3,
+                textStyle: {
+                    color: '#C1C1E4',
+                    fontSize: 12
+                },
+                itemHeight: 12,
+                itemWidth: 12
+            },
+            grid: {
+                top: 35,
+                bottom: 35,
+                left: 50,
+                right: 30
+            },
+            xAxis: {
+                type: 'category',
+                data: role_zhengfu_name_array_rwo,
+                axisLine: {
+
+                    lineStyle: {
+                        color: '#0087ED'
+                    }
+                },
+                axisTick: {
+                    show: true,
+                    length: 3,
+                    lineStyle: {
+                        opacity: 0.5
+                    }
+                },
+                axisLabel: {
+                    interval: 0,
+                    textStyle: {
+                        fontSize: 12
+                    },
+                    formatter: function (value, index) {
+                        if (index % 2 != 0) {
+                            return '\n' + value
+                        }
+                        else {
+                            return value
+                        }
+                    }
+                }
+            },
+
+
+            yAxis: [{
+                type: 'value',
+                name: '人',
+                axisLine: {
+                    lineStyle: {
+                        color: '#0087ED',
+                        width: 1
+                    }
+                },
+                axisLabel: {
+                    interval: 0,
+                    textStyle: {
+                        fontSize: 12
+                    }
+                },
+                nameLocation: 'end',
+                nameGap: 5,
+                axisTick: {
+                    show: true,
+                    length: 3,
+                    lineStyle: {
+                        opacity: 0.5
+                    }
+                },
+                splitLine: {
+                    show: false
+                }
+            }, {
+                type: 'value',
+                name: '岁',
+                nameLocation: 'end',
+                nameGap: 5,
+                axisLine: {
+                    lineStyle: {
+                        color: '#D87A80',
+                        width: 1
+                    }
+                },
+                axisLabel: {
+                    interval: 0,
+                    textStyle: {
+                        fontSize: 12
+                    }
+                },
+                axisTick: {
+                    show: true,
+                    length: 3,
+                    lineStyle: {
+                        opacity: 0.5
+                    }
+                },
+                splitLine: {
+                    show: false
+                }
+            }],
+            series: [
+                {
+                    name: '30岁及以下',
+                    type: 'bar',
+                    stack: '总量',
+                    barWidth: 30,
+                    label: {
+                        normal: {
+                            position: 'insideRight'
+                        }
+                    },
+                    data: param.be30
+                },
+                {
+                    name: '31-40',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            position: 'insideRight'
+                        }
+                    },
+                    data: param.gt30lt35
+                },
+                {
+                    name: '41-50',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            position: 'insideRight'
+                        }
+                    },
+                    data: param.gt40lt45
+                },
+                {
+                    name: '51-59',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            position: 'insideRight'
+                        }
+                    },
+                    data: param.gt50lt55
+                },
+                {
+                    name: '60岁及以上',
+                    type: 'bar',
+                    stack: '总量',
+                    label: {
+                        normal: {
+                            position: 'insideRight'
+                        }
+                    },
+                    data: param.gt60
+                },
+                {
+                    name: '平均年龄',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    data: param.avg
+                }
+            ]
+        }
+
+        middle_bottom_chart.setOption(setOption)
+
+        middle_bottom_chart.hideLoading()
+    }
+
+    var rossidlist = []
+
+    var colsidlist = []
+
+    var peosqllist = []
+    var sqlthree = null
+
+
+
+    var colrowidnumber
+
+    var number
+
+
+
+    function clickopenpeo(colsid, rowsid, name, val, ID) {
+
+        colrowidnumber = 0
+        number = 0
+
+
+        rossidlist = rowsid.split(",");
+
+        colsidlist = colsid.split(",");
+        colrowidnumber = parseInt(rossidlist.length)*parseInt(colsidlist.length)
+        var sqlwhereone
+
+        var pjsqltwo
+
+        var sql_arr = []
+        if (val != 0) {
+
+            for (i = 0; i < rossidlist.length; i++) {
+                for (a = 0; a < colsidlist.length; a++) {
+                    selectSql(converFcrySql(colsidlist[a], rossidlist[i]), function (ret, err) {
+                        var sql = ret.data[0].DRILLSQL;
+                        var newsql = sql.replace(/\"/g, "'");
+                        var sqlone = newsql.substring(newsql.lastIndexOf("@FIELDS@") + 9, newsql.lastIndexOf("AND"));
+
+                        var pjsqlone = sqlone.substring(0, sqlone.lastIndexOf("AND") + 3);
+                        //   pjsqltwo = newsql.substring(newsql.lastIndexOf(")") + 1, newsql.lastIndexOf(","));
+
+                        sqlwhereone = newsql.substring(newsql.lastIndexOf("@FIELDS@") + 9, newsql.lastIndexOf("WHERE") + 6);
+
+                        var sqlwhere = sqlone.substring(sqlone.lastIndexOf("WHERE") + 6, sqlone.lastIndexOf("AND"));
+
+
+                        sql_arr.push(sqlwhere)
+
+                        number++
+
+                        if(number == colrowidnumber ){
+
+
+                            var comsql = ''
+                            for (i = 0; i < sql_arr.length; i++) {
+                                comsql += "(" + sql_arr[i] + ") OR "
+
+                            }
+                            comsql = "(" + comsql.substr(0, comsql.length - 3) + ") and"
+
+                            if (judgeIsAnyNullStr(ID)) {
+                                sqlthree = "select RS_A01.ID ID, A0101, (CASE WHEN A0104 = 1 THEN '男'else'女'end) A0104, age, a0140, (SELECT NAME FROM DIC_RS_GB3304 WHERE CODE = A0117) A0117, A0192, (SELECT NAME FROM DIC_rs_Zb09 where code = A0172) A0172 " + sqlwhereone + comsql + " (RS_A01.NID like '" + place_code + "%') " + "order by rs_a01.aorder "
+                            } else {
+                                sqlthree = "select RS_A01.ID ID, A0101, (CASE WHEN A0104 = 1 THEN '男'else'女'end) A0104, age, a0140, (SELECT NAME FROM DIC_RS_GB3304 WHERE CODE = A0117) A0117, A0192, (SELECT NAME FROM DIC_rs_Zb09 where code = A0172) A0172 " + sqlwhereone + comsql + " (RS_A01.NID like '" + ID + "%') " + "order by rs_a01.aorder "
+
+                            }
+                            var item = {
+                                sql: sqlthree,
+                                name: name
+                            }
+                            comOpenWin('dwpeolist_win', '../dwlist/', item, 2);
+
+
+                        }
+
+                    })
+                }
+            }
+
+        }
+    }
+
+
+
+    function cleanarr() {
+        peosqllist = []
+        sqlthree = null
+    }
+
+
+
+    function converFcrySql(colsid, rowsid) {
+        var sql = "SELECT * FROM GWY_RPT_LD_NODESQL WHERE  ROWSID='" + rowsid + "' AND COLSID='" + colsid + "' AND RPTABLEID='JT2017001';"
+        return sql
+    }
+</script>
+</html>
+

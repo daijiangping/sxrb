@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="e49b500a-a0ad-46fb-9530-ff46a4e9c74d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/html/dwlist/dwlist_frm.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/dwlist/dwlist_frm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/dwlist/dwpeolist_frm.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/dwlist/dwpeolist_frm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame0midbottom.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame0midbottom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame0rightbottom.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame0rightbottom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame0rightop.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame0rightop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame0sixthPlot.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame0sixthPlot.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame1conthree.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame1conthree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame1contwo.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame1contwo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame1rightbtone.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame1rightbtone.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame1rightbtwo.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame1rightbtwo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame1rightop.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame1rightop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/ryxx/cityfilter_frm.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/cityfilter_frm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/ryxx/filter.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/filter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/ryxx/grxx_frm.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/grxx_frm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/ryxx/insidefilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/insidefilter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/ryxx/peoplepic_frm.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/peoplepic_frm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/ryxx/ryxx_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/ryxx_list.html" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aui-tab.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/aui-tab.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leek-common.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/leek-common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8400">
+              <caret line="280" column="7" selection-start-line="280" selection-start-column="7" selection-end-line="280" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>inameval</find>
+      <find>rs</find>
+      <find>margin</find>
+      <find>scr</find>
+      <find>img</find>
+      <find>url</find>
+      <find>display</find>
+      <find>getContextPath</find>
+      <find>res</find>
+      <find>number</find>
+      <find>danwei</find>
+      <find>it</find>
+      <find>setinfo</find>
+      <find>list</find>
+      <find>各职务</find>
+      <find>女少非比例</find>
+      <find>lxthree-message-content</find>
+      <find>clickTopList</find>
+      <find>lxstyle-message-content</find>
+      <find>$</find>
+      <find>middle_bottom_type_1_2_chart</find>
+      <find>dw-list-content</find>
+      <find>任免审批</find>
+      <find>setScreenOrientation</find>
+      <find>grxx_frm</find>
+      <find>全国</find>
+      <find>员</find>
+      <find>converFcrySql</find>
+      <find>A6061262526547</find>
+      <find>openTab</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>it</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\api\领导查询系统</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="D:/../资金监管/geo-map-scatter.html" />
+        <option value="$PROJECT_DIR$/script/china.js" />
+        <option value="$PROJECT_DIR$/script/echarts.style.js" />
+        <option value="D:/折线图/mix-line-bar.html" />
+        <option value="D:/折线图/bar-y-category.html" />
+        <option value="$PROJECT_DIR$/html/ryxx/yuxpic.html" />
+        <option value="$PROJECT_DIR$/html/ryxx/ruxpic.html" />
+        <option value="$PROJECT_DIR$/html/ryxx/peoplelist_win.html" />
+        <option value="$PROJECT_DIR$/html/ryxx/yuxlist.html" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/css/aui.css" />
+        <option value="$PROJECT_DIR$/html/ryxx/ryxlt.html" />
+        <option value="$PROJECT_DIR$/css/style1.css" />
+        <option value="$PROJECT_DIR$/css/layout.css" />
+        <option value="$PROJECT_DIR$/html/frame1_back.html" />
+        <option value="$PROJECT_DIR$/script/scriptabxz.js" />
+        <option value="$PROJECT_DIR$/html/ryxx/grxx_win.html" />
+        <option value="$PROJECT_DIR$/html/frame2.html" />
+        <option value="$PROJECT_DIR$/html/frame3.html" />
+        <option value="$PROJECT_DIR$/html/ryxx/cityfilter_frm.html" />
+        <option value="$PROJECT_DIR$/html/ryxx/filter.html" />
+        <option value="$PROJECT_DIR$/html/dwlist/dwlist_frm.html" />
+        <option value="$PROJECT_DIR$/html/dwlist/dwpeolist_frm.html" />
+        <option value="$PROJECT_DIR$/html/echartsframelist/frame0midbottom.html" />
+        <option value="$PROJECT_DIR$/html/echartsframelist/frame0rightbottom.html" />
+        <option value="$PROJECT_DIR$/html/echartsframelist/frame0rightop.html" />
+        <option value="$PROJECT_DIR$/html/echartsframelist/frame0sixthPlot.html" />
+        <option value="$PROJECT_DIR$/html/echartsframelist/frame1conthree.html" />
+        <option value="$PROJECT_DIR$/html/echartsframelist/frame1contwo.html" />
+        <option value="$PROJECT_DIR$/html/echartsframelist/frame1rightbtone.html" />
+        <option value="$PROJECT_DIR$/html/echartsframelist/frame1rightbtwo.html" />
+        <option value="$PROJECT_DIR$/html/echartsframelist/frame1rightop.html" />
+        <option value="$PROJECT_DIR$/script/leek-common.js" />
+        <option value="$PROJECT_DIR$/script/common.js" />
+        <option value="$PROJECT_DIR$/html/frame0.html" />
+        <option value="$PROJECT_DIR$/html/frame1.html" />
+        <option value="$PROJECT_DIR$/html/frame4.html" />
+        <option value="$PROJECT_DIR$/html/ryxx/grxx_frm.html" />
+        <option value="$PROJECT_DIR$/html/ryxx/peoplepic_frm.html" />
+        <option value="$PROJECT_DIR$/html/ryxx/insidefilter.html" />
+        <option value="$PROJECT_DIR$/html/ryxx/ryxx_list.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/.filelist.txt" />
+        <option value="$PROJECT_DIR$/config.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
+              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
+              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
+              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
+              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="ryxx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
+              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
+              <item name="icon" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
+              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
+              <item name="launch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
+              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/html" />
+      <recent name="$PROJECT_DIR$/res" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\daijiangping\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\下载\领导查询系统" />
+          <option name="myCopyRoot" value="D:\下载\领导查询系统" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="D:\下载\领导查询系统" />
+          <option name="myCopyRoot" value="D:\下载\领导查询系统" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e49b500a-a0ad-46fb-9530-ff46a4e9c74d" name="Default" comment="" />
+      <created>1516717914577</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1516717914577</updated>
+      <workItem from="1516717916747" duration="4387000" />
+      <workItem from="1516755704397" duration="70000" />
+      <workItem from="1516782117779" duration="3000" />
+      <workItem from="1516876049942" duration="4341000" />
+      <workItem from="1516945412122" duration="9879000" />
+      <workItem from="1517016794848" duration="25688000" />
+      <workItem from="1517289991011" duration="114000" />
+      <workItem from="1517301650418" duration="27272000" />
+      <workItem from="1517460991734" duration="48000" />
+      <workItem from="1517481269962" duration="119000" />
+      <workItem from="1517541258595" duration="143000" />
+      <workItem from="1517794707543" duration="45391000" />
+      <workItem from="1517988342125" duration="25222000" />
+      <workItem from="1518148859930" duration="15515000" />
+      <workItem from="1518225427433" duration="42327000" />
+      <workItem from="1521076281645" duration="1741000" />
+      <workItem from="1521163247028" duration="29305000" />
+      <workItem from="1521272265244" duration="571000" />
+      <workItem from="1521289070793" duration="30379000" />
+      <workItem from="1521421469395" duration="49597000" />
+      <workItem from="1521638169913" duration="6646000" />
+      <workItem from="1523801363227" duration="36118000" />
+      <workItem from="1524016210627" duration="593000" />
+      <workItem from="1524018254816" duration="2625000" />
+      <workItem from="1524449417575" duration="5742000" />
+      <workItem from="1524719599043" duration="4095000" />
+      <workItem from="1554556546073" duration="7076000" />
+      <workItem from="1554625242904" duration="987000" />
+      <workItem from="1554963832744" duration="5825000" />
+      <workItem from="1554969741807" duration="827000" />
+      <workItem from="1554995161617" duration="2961000" />
+      <workItem from="1555085683122" duration="1023000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="386642000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="JRebel Console" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="JRebel Executor" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Mongo Explorer" order="3" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32903227" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22068231" />
+      <window_info id="JRebel" order="2" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32931727" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32931727" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="11" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="110" lean-forward="true" selection-start-line="5" selection-start-column="110" selection-end-line="5" selection-end-column="110" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/aui-tab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/leek-common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8400">
+          <caret line="280" column="7" lean-forward="true" selection-start-line="280" selection-start-column="7" selection-end-line="280" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/aui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68586">
+          <caret line="2982" column="15" selection-start-line="2982" selection-start-column="15" selection-end-line="2982" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/api2222/领导查询系统相关资料/leaderselect/leaderselect/jsp/leaderIndex.jsp" />
+    <entry file="file://D:/api2222/领导查询系统相关资料/leaderselect/leaderselect/jsp/JsInclude.jsp" />
+    <entry file="file://$PROJECT_DIR$/css/style1.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="235" column="90" lean-forward="true" selection-start-line="235" selection-start-column="90" selection-end-line="235" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/ryxx/ryxlt.html" />
+    <entry file="file://$PROJECT_DIR$/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4347">
+          <caret line="189" column="42" selection-start-line="189" selection-start-column="42" selection-end-line="189" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/scriptabxz.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1817">
+          <caret line="79" column="10" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/frame1_back.html" />
+    <entry file="file://$PROJECT_DIR$/script/jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="3" column="3227" selection-start-line="3" selection-start-column="3227" selection-end-line="3" selection-end-column="3227" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/countup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3333">
+          <caret line="70" column="10" lean-forward="true" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/ryxx/grxx_win.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="45" column="45" lean-forward="true" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/ryxx/cityfilter_frm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="308" column="3" selection-start-line="308" selection-start-column="3" selection-end-line="308" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/dwlist/dwpeolist_frm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-522">
+          <caret line="237" column="3" selection-start-line="237" selection-start-column="3" selection-end-line="237" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/frame1rightop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="437" column="3" selection-start-line="437" selection-start-column="3" selection-end-line="437" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/frame1rightbtwo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="619" column="3" selection-start-line="619" selection-start-column="3" selection-end-line="619" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/frame1contwo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="324" column="2" selection-start-line="324" selection-start-column="2" selection-end-line="324" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/frame1contone.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3609" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/frame1conthree.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="314" selection-start-line="314" selection-end-line="314" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/frame0sixthPlot.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="334" column="3" selection-start-line="334" selection-start-column="3" selection-end-line="334" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/frame0rightop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="371" selection-start-line="371" selection-end-line="371" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/frame0rightbottom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="617" selection-start-line="617" selection-end-line="617" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/ryxx/ryxx_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/ryxx/peoplepic_frm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/filtercity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/frame0midbottom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14460">
+          <caret line="482" selection-start-line="482" selection-end-line="482" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/frame3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="178" lean-forward="true" selection-start-line="178" selection-end-line="178" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/frame0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-97311">
+          <caret line="2" column="1169" selection-start-line="2" selection-start-column="1169" selection-end-line="2" selection-end-column="1169" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/frame1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="843">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/frame2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="843">
+          <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/frame4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="2" column="1531" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="1531" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/city_map.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-149391">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/dwlist/dwlist_frm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="90" column="38" lean-forward="true" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/ryxx/filter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="1274" lean-forward="true" selection-start-line="1274" selection-end-line="1274" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/frame1rightbtone.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="541" column="43" selection-start-line="541" selection-start-column="30" selection-end-line="541" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/map/province/jiangxi.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4950" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/map/province/liaoning.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5400" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/map/province/anhui.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-570">
+          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/map/province/fujian.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret column="41935" lean-forward="true" selection-start-column="41935" selection-end-column="41935" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.filelist.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="812" column="39" lean-forward="true" selection-start-line="812" selection-start-column="26" selection-end-line="812" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/ryxx/grxx_frm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="2" column="61602" selection-start-line="2" selection-start-column="61602" selection-end-line="2" selection-end-column="61602" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="8337" column="1" lean-forward="true" selection-start-line="8337" selection-start-column="1" selection-end-line="8337" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="676" column="1" lean-forward="true" selection-start-line="676" selection-start-column="1" selection-end-line="676" selection-end-column="1" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/leek-common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8400">
+          <caret line="280" column="7" selection-start-line="280" selection-start-column="7" selection-end-line="280" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/aui-tab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

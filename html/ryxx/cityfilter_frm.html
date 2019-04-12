@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>人员信息</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <style>
+        body {
+
+        }
+
+        .tab-btn-city {
+            display: inline-block;
+            width: auto;
+            line-height: 25px;
+            height: 25px;
+            min-width: 2px;
+            padding: 0 3px;
+        }
+
+        .bg_xg {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+
+        }
+
+        .broder-img {
+            width: 96%;
+            height: 0.5px;
+            margin: 0 auto;
+            background-color: #C1C1E4;
+        }
+
+        .box-one {
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+            background-color: #0F1D41;
+        }
+
+        .city-box {
+            height: auto !important;
+            width: 95%;
+            color: #C1C1E4;
+            margin: 0 auto;
+            min-height: 30px
+        }
+        .butt-style {
+            width: 30%;
+            height: 20px;
+            line-height: 20px;
+            margin: 0 auto;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        .butt-style-butt {
+            width: 40%;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 4px;
+            background-color: #113164;
+            color: #C1C1E4;
+            font-size: 13px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box-one">
+
+
+    <div class="bg_xg">
+
+        <div class="city-box">
+            <div id="top-message-content" class="list-style-one">
+                <div id="top-name-message-content" class=" aui-text-center  tab-btn-city aui-margin-r-5 city"
+                     onclick="clickAllCity();">
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="broder-img"></div>
+
+
+        <div class="city-box">
+            <div id="city-message-content" class="list-style-one">
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <footer style="width: 100%;height: 40px;position: fixed;bottom: 10px;z-index: 99">
+
+        <div class="butt-style">
+            <div class="butt-style-butt" style="float: left" onclick="clicksure()">确定</div>
+            <div class="butt-style-butt" style="float: right" onclick="closeFrame();">取消</div>
+        </div>
+    </footer>
+
+
+</div>
+
+</body>
+
+
+
+<script id="city-message-content-template" type="text/x-dot-template">
+    {{for(var i=0;i
+    <it.length ;i++){}}
+    <div id="city{{=i}}" data-value="{{=it[i].ID}}"
+         class=" aui-text-center  tab-btn-city aui-margin-r-5 city"
+         onclick="clickCity('{{=i}}','{{=it[i].NAME}}','{{=it[i].ID}}');">{{=it[i].NAME}}</div>
+    {{}}}
+</script>
+
+
+<script id="top-message-content-template" type="text/x-dot-template">
+
+    <div id="top_{{=it.numb}}" data-value="{{=it.ID}}"  city-name="{{=it.NAME}}"
+         class=" aui-text-center  tab-btn-city aui-margin-r-5 cleancity"
+         onclick="clickTop('{{=it.numb}}');">{{=it.NAME}}</div>
+</script>
+
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript">
+
+
+
+
+
+    var where ;
+
+   var mysqlbef;
+    var mysqlaft;
+
+
+    var mysql ;
+
+
+    var topnamesql = "select name from rs_unmk where id='0' ORDER BY SYSUMPORDER  "
+
+    var topname = ''
+    apiready = function () {
+
+        mysqlbef = api.pageParam.all.mysqlone
+        mysqlaft = api.pageParam.all.mysqltwo
+
+
+        selectSql(topnamesql, function (ret, err) {
+            if (ret.status) {
+                topname = ret.data[0].NAME
+
+                $("#top-name-message-content").text(topname);
+
+
+            } else {
+
+            }
+        })
+
+
+
+      var  code = api.pageParam.data
+        if(code == null){
+            where = 0
+        }else {
+            where = api.pageParam.data
+        }
+
+        mysql = "SELECT ID,NAME FROM RS_UNMK WHERE SID='" + where + "'";
+
+
+
+        topcity_arr = api.pageParam.city_arr
+        for (var i =1 ; i < topcity_arr.length; i++) {
+            var news_obj = clone(topcity_arr[i]);
+            var interText = doT.template($("#top-message-content-template").text());
+            $("#top-message-content").append(interText(news_obj));
+        }
+
+        wherename = topcity_arr[topcity_arr.length-1].NAME
+        openlibrary()
+    }
+
+
+
+
+    function openlibrary() {
+        selectSql(mysql, function (ret, err) {
+            if (ret.status) {
+                $("#city-message-content").empty()
+
+                var interText = doT.template($("#city-message-content-template").text());
+                $("#city-message-content").html(interText(ret.data));
+            } else {
+
+            }
+        })
+    }
+
+    var idnumber = 0
+
+    var topcity_arr = [
+        {
+            NAME: topname,
+            ID: 0
+        }
+    ]
+
+    var wherename = topname;
+    function clickCity(dom_id, name, cod) {
+
+        var news_sc = {NAME: name, ID: cod, numb: idnumber}
+
+        topcity_arr.push(news_sc)
+
+        var interText = doT.template($("#top-message-content-template").text());
+        $("#top-message-content").append(interText(news_sc));
+
+        idnumber++;
+
+        wherename = name
+        where = cod
+
+
+        consoledebug.log('clickCityname:' + JSON.stringify(wherename));
+        mysql = "SELECT ID,NAME FROM RS_UNMK WHERE SID='" + where + "' ORDER BY SYSUMPORDER  "
+        openlibrary()
+
+
+    }
+
+
+    function clickTop(dom_id) {
+
+
+        for (i = 0; i < topcity_arr.length; i++) {
+            if (i > dom_id) {
+                $("#top_" + i).remove()
+            }
+        }
+
+        where = $("#top_" + dom_id).attr("data-value")
+
+        mysql = "SELECT ID,NAME FROM RS_UNMK WHERE SID='" + where + "' ORDER BY SYSUMPORDER "
+
+        wherename = $("#top_" + dom_id).text()
+
+        openlibrary()
+    }
+
+
+    function clickAllCity() {
+
+        $(".cleancity").remove()
+        idnumber = 0
+
+        where = 0
+        mysql = "SELECT ID,NAME FROM RS_UNMK WHERE SID='" + where + "' ORDER BY SYSUMPORDER "
+
+        wherename = topname
+        openlibrary()
+    }
+
+
+    function clicksure() {
+        var  cityname
+
+        if (wherename == topname) {
+            cityname = "WHERE 1=1 and "
+        } else {
+            cityname = " WHERE  RS_A02.A0201B like '" + where + "%'" + " and "
+        }
+
+        var   isql = mysqlbef + cityname + mysqlaft
+
+
+
+        var city_arr = [{numb:-1,NAME:topname}]
+        var number = 0
+        $(".cleancity").each(function () {
+
+            var  obj = {NAME:$(this).attr("city-name"),CODE:$(this).attr("data-value"),numb:number}
+            city_arr.push(obj)
+            number++;
+        });
+
+
+     isql = isql.substr(0, isql.length - 4);
+
+        consoledebug.log('clickCity isq:' + JSON.stringify(isql));
+
+        api.sendEvent({
+            name: 'cityspl_name',
+            extra: {
+                data: isql,
+                citylist:city_arr,
+                cityname:cityname
+            }
+        });
+        closeFrame()
+    }
+
+</script>
+</html>

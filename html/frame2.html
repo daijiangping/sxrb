@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+
+
+
+<div id="container" style="height: 500px"></div>
+
+
+
+
+
+</body>
+<script type="text/javascript" src="../script/echarts.min.js"></script>
+<script type="text/javascript" src="../script/china.js"></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    var data = [
+//    {name: '海门', value: 9}
+
+    ];
+
+    var geoCoordMap = {
+        //    '海门':[121.15,31.89]
+
+    };
+
+    function convertData(data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
+    }
+
+    function randomValue() {
+        return Math.round(Math.random() * 1000);
+    }
+
+
+    option = {
+
+
+        tooltip: {},
+        visualMap: {
+            min: 0,
+            max: 1500,
+            left: 'left',
+            top: 'bottom',
+            text: ['', ''],
+            seriesIndex: [1],
+            inRange: {
+                color: ['#e0ffff', '#006edd']
+            },
+            calculable: false
+        },
+        geo: {
+            map: 'china',
+            roam: true,
+            label: {
+                normal: {
+                    show: true,
+                    textStyle: {
+                        color: 'rgba(0,0,0,0.4)'
+                    }
+                }
+            },
+            itemStyle: {
+                normal: {
+                    borderColor: '#006edd'
+                },
+                emphasis: {
+                    areaColor: null,
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    shadowBlur: 20,
+                    borderWidth: 0,
+                    shadowColor: 'white'
+
+
+                }
+
+            }
+        },
+        series: [
+            {
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                data: convertData(data),
+                symbolSize: 20,
+                symbol: ' ',
+                symbolRotate: 35,
+
+
+                label: {
+                    normal: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: false
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle:{color:"#800080"}
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#800080'
+                    }
+                }
+            },
+            {
+                name: 'categoryA',
+                type: 'map',
+                geoIndex: 0,
+                tooltip: {show: false},
+                data: [
+                    {name: '北京', value: randomValue()},
+                    {name: '天津', value: randomValue()},
+                    {name: '上海', value: randomValue()},
+                    {name: '重庆', value: randomValue()},
+                    {name: '河北', value: randomValue()},
+                    {name: '河南', value: randomValue()},
+                    {name: '云南', value: randomValue()},
+                    {name: '辽宁', value: randomValue()},
+                    {name: '黑龙江', value: randomValue()},
+                    {name: '湖南', value: randomValue()},
+                    {name: '安徽', value: randomValue()},
+                    {name: '山东', value: randomValue()},
+                    {name: '新疆', value: randomValue()},
+                    {name: '江苏', value: randomValue()},
+                    {name: '浙江', value: randomValue()},
+                    {name: '江西', value: randomValue()},
+                    {name: '湖北', value: randomValue()},
+                    {name: '广西', value: randomValue()},
+                    {name: '甘肃', value: randomValue()},
+                    {name: '山西', value: randomValue()},
+                    {name: '内蒙古', value: randomValue()},
+                    {name: '陕西', value: randomValue()},
+                    {name: '吉林', value: randomValue()},
+                    {name: '福建', value: randomValue()},
+                    {name: '贵州', value: randomValue()},
+                    {name: '广东', value: randomValue()},
+                    {name: '青海', value: randomValue()},
+                    {name: '西藏', value: randomValue()},
+                    {name: '四川', value: randomValue()},
+                    {name: '宁夏', value: randomValue()},
+                    {name: '海南', value: randomValue()},
+                    {name: '台湾', value: randomValue()},
+                    {name: '香港', value: randomValue()},
+                    {name: '澳门', value: randomValue()}
+                ]
+            }
+        ]
+    };
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true
+        );
+    }
+
+    myChart.setOption(option = {
+        visualMap: {
+            show: false
+        }
+    });
+
+
+    myChart.on('click', function (params) {
+        console.log("测试点击事件", params);
+        if (params.name == '新疆') {
+            alert('HELLO')
+        } else {
+            alert('HELLOWORD')
+        }
+
+    });
+</script>
+
+</html>

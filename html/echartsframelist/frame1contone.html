@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/layoutnew.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont/iconfont.css"/>
+    <style>
+        html,body{
+            background:url(../../images/bac.png) no-repeat;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body ondblclick="closeFrame()">
+
+
+<div class="aui-bar-nav-new" style="z-index: 99;position: fixed;top: 0">
+    <div class="aui-pull-left" onclick="closeFrame();">
+        <span class="icon iconfont icon-back">返回</span>
+    </div>
+    <span>平均年龄</span>
+
+    <div class="aui-pull-right"style="color: transparent ">
+        <span class="icon iconfont icon-back">占位</span>
+    </div>
+</div>
+
+
+<div style="width: 100%;height: 99%;margin:0 auto;padding:3%;overflow: auto;">
+
+    <div class="echartstwo">
+    <div id="cont_two_1" class="echartsfour" >
+
+    </div>
+</div>
+
+
+    <!--表格-->
+    <table id="message-content" border="0" class="table_rylb conytb">
+
+    </table>
+
+</div>
+
+
+
+
+<script id="message-content-template" type="text/x-dot-template">
+    <!--列表-->
+    <table>
+            {{for(var i=0;i
+            <it.length ;i++){}}
+            <tr class="white-bg">
+                {{for(var a=0;a
+                <it[i].length ;a++){}}
+                <td style="width: 3%;">{{=it[i][a]}}</td>
+                {{}}}
+            </tr>
+            {{}}}
+        </table>
+
+</script>
+
+
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/common.js"></script>
+<script type="text/javascript" src="../../script/scriptabxz.js"></script>
+<script type="text/javascript" src="../../script/doT.min.js"></script>
+<script type="text/javascript" src="../../script/leek-common.js"></script>
+<script type="text/javascript" src="../../script/echarts.min.js"></script>
+<script type="text/javascript">
+
+    var place_code
+    var list_arr_id
+    apiready = function(){
+        var   pageParam = api.pageParam.item;
+        place_code = api.pageParam.item.place_code
+
+
+        showMiddleBottomType3FirstChart(pageParam.containe_arr,pageParam.province_conver_array)
+
+
+        province_array_all =  api.pageParam.item.province_array_all
+
+        var list_arr = []
+        list_arr[0] =  pageParam.province_conver_array
+        list_arr[1] =  pageParam.containe_arr
+        list_arr_id =  pageParam.provinceid_array
+
+
+        var interText = doT.template($("#message-content-template").text());
+        $("#message-content").html(interText(list_arr));
+
+
+        api.addEventListener({
+            name: 'cleanarr'
+        }, function (ret, err) {
+            cleanarr()
+        })
+
+    };
+
+    function showMiddleBottomType3FirstChart(data,name) {
+        middle_bottom_type_3_first_chart = echarts.init(document.getElementById('cont_two_1'))
+
+        middle_bottom_type_3_first_chart.showLoading({text: '正在努力的读取数据中...'})
+
+        var param = data
+
+        var province_conver_array = name
+
+        var setOption = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['平均年龄'],
+                show: false
+            },
+            xAxis: [{
+                type: 'category',
+                data: province_conver_array,
+                axisLabel: {
+                    interval: 0,
+                    margin: 8,
+                    textStyle: {
+                        type: 'solid',
+                        color: "#0087ED",
+                        fontSize: 12   // 让字体变大
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#0087ED',
+                        width: 1
+                    }
+                }
+            }],
+            yAxis: [{
+                splitLine: {
+                    show: false
+                },
+                type: 'value',
+                name: '年龄（岁）',
+                nameGap: 15,
+                axisLabel: {
+                    textStyle: {
+                        color: '#0087ED',
+                        fontSize: 12   // 让字体变大
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#0087ED',
+                        width: 1
+                    }
+                }
+            }],
+            series: [{
+                type: 'bar',
+                data: param,
+                barWidth: '30%',
+//                color: '#ff7e50'
+            }]
+        }
+
+        middle_bottom_type_3_first_chart.setOption(setOption)
+
+        middle_bottom_type_3_first_chart.hideLoading()
+    }
+
+
+
+
+</script>
+</html>
