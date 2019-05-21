@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="e49b500a-a0ad-46fb-9530-ff46a4e9c74d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/html/dwlist/dwlist_frm.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/dwlist/dwlist_frm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/dwlist/dwpeolist_frm.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/dwlist/dwpeolist_frm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame0midbottom.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame0midbottom.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame0rightbottom.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame0rightbottom.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame0rightop.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame0rightop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame0sixthPlot.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame0sixthPlot.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame1conthree.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame1conthree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame1contwo.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame1contwo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame1rightbtone.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame1rightbtone.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame1rightbtwo.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame1rightbtwo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/echartsframelist/frame1rightop.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/echartsframelist/frame1rightop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/ryxx/cityfilter_frm.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/cityfilter_frm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/ryxx/filter.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/filter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/ryxx/grxx_frm.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/grxx_frm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/ryxx/insidefilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/insidefilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/ryxx/peoplepic_frm.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/peoplepic_frm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/ryxx/ryxx_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/ryxx/ryxx_list.html" afterDir="false" />
-    </list>
+    <list default="true" readonly="true" id="e49b500a-a0ad-46fb-9530-ff46a4e9c74d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -35,8 +17,8 @@
       <file leaf-file-name="dwlist_frm.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/dwlist/dwlist_frm.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="1740">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
             </state>
           </provider>
         </entry>
@@ -44,8 +26,8 @@
       <file leaf-file-name="dwlist_win.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/dwlist/dwlist_win.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="450">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -53,7 +35,7 @@
       <file leaf-file-name="dwpeolist_frm.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/dwlist/dwpeolist_frm.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-620">
+            <state relative-caret-position="7410">
               <caret line="247" column="27" selection-start-line="247" selection-start-column="27" selection-end-line="247" selection-end-column="27" />
             </state>
           </provider>
@@ -62,8 +44,8 @@
       <file leaf-file-name="dwpeolist_win.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/dwlist/dwpeolist_win.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1160">
-              <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            <state relative-caret-position="360">
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -71,8 +53,8 @@
       <file leaf-file-name="filtercity.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/echartsframelist/filtercity.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+            <state relative-caret-position="2730">
+              <caret line="91" selection-start-line="91" selection-end-line="91" />
             </state>
           </provider>
         </entry>
@@ -80,8 +62,8 @@
       <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="570">
+              <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -207,47 +189,19 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
-              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
-              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
-              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="dwlist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
-              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="echartsframelist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
-              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="ryxx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="领导查询系统" type="b2602c69:ProjectViewProjectNode" />
-              <item name="领导查询系统" type="462c0819:PsiDirectoryNode" />
-              <item name="script" type="462c0819:PsiDirectoryNode" />
+              <item name="widget" type="b2602c69:ProjectViewProjectNode" />
+              <item name="widget" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,24 +277,6 @@
     <configuration>C:\Users\daijiangping\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
   </component>
-  <component name="SvnFileUrlMappingImpl">
-    <option name="myMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="D:\下载\领导查询系统" />
-          <option name="myCopyRoot" value="D:\下载\领导查询系统" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-    <option name="myMoreRealMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="D:\下载\领导查询系统" />
-          <option name="myCopyRoot" value="D:\下载\领导查询系统" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e49b500a-a0ad-46fb-9530-ff46a4e9c74d" name="Default" comment="" />
@@ -380,11 +316,12 @@
       <workItem from="1554969741807" duration="827000" />
       <workItem from="1554995161617" duration="2961000" />
       <workItem from="1555085683122" duration="4017000" />
+      <workItem from="1558324208173" duration="1901000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389636000" />
+    <option name="totallyTimeSpent" value="391537000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -413,7 +350,6 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32903227" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22068231" />
       <window_info id="JRebel" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32931727" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="0" weight="0.32931727" />
@@ -422,6 +358,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32931727" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,6 +373,20 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/html/echartsframelist/filtercity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2730">
+          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/aui.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68586">
@@ -479,9 +430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3333">
           <caret line="70" column="10" lean-forward="true" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="10" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -623,18 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="676" column="1" lean-forward="true" selection-start-line="676" selection-start-column="1" selection-end-line="676" selection-end-column="1" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -656,9 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -666,13 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="183" column="40" selection-start-line="183" selection-start-column="29" selection-end-line="183" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -725,16 +651,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/image/ren_index_weizhi.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/image/arrows.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/dwlist/dwpeolist_win.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1160">
-          <caret line="12" column="11" lean-forward="true" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        <state relative-caret-position="360">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -747,36 +667,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/dwlist/dwlist_win.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="450">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/dwlist/dwlist_frm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="1740">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/dwlist/dwpeolist_frm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-620">
+        <state relative-caret-position="7410">
           <caret line="247" column="27" selection-start-line="247" selection-start-column="27" selection-end-line="247" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/echartsframelist/filtercity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="2730">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        <state relative-caret-position="570">
+          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
         </state>
       </provider>
     </entry>

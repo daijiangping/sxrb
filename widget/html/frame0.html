@@ -59,13 +59,14 @@
                                                                                       style="width:0;position: absolute;top: 0;left: 0"></em>
                             </div>
                         </li>
-                        <li style="margin-top: 5px"><span class="fei"></span>非中共党员：<u id="fei_num"
+                        <li style="margin-top: 5px"><span class="fei"></span>中共党员：<u id="fei_num"
                                                                                       style="font-size: 10px">0人</u>
                             <u id="fei_rate" style="margin-left: 26%">0</u>
                             <div class="baift feibjt" style="position: relative"><em id="fei_rate_width"
                                                                                      style="width:0;position: absolute;top: 0;left: 0"></em>
                             </div>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -2511,7 +2512,8 @@
     }
 
     function showRightBottomChart(data) {
-        var legend_array = ['不满2年', '2年至不满3年', '3年至不满4年', '4年至不满5年', '5年至不满6年', '6年及以上']
+     //   var legend_array = ['不满2年', '2年至不满3年', '3年至不满4年', '4年至不满5年', '5年至不满6年', '6年及以上']
+        var legend_array = ['不满1年', '1年到到不满2年', '2年到不满5年', '5年至不满10年', '10年及以上']
 
         right_bottom_chart = echarts.init(document.getElementById('container-right-bottom'))
 

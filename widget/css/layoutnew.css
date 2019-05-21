@@ -226,6 +226,7 @@ height: 30px; text-align:right;}
 .nvsfdiv ul li span.shao,.shaobjt em{background:#F49802;}
 .feibjt{ border:1px solid #424AF5;}
 .nvsfdiv ul li span.fei,.feibjt em{background:#4650FF;}
+.nvsfdiv ul li span.zhong,.feibjt em{background: #2dbcff;}
 
 /*首页头部弹框*/
 .lefttab{ position:absolute; top:4px; left:8px; height:97%; width:30px; background:url(../images/tabtop.png) right repeat-y; z-index:90; border-bottom:1px solid #152D73; border-top:1px solid #152D73;}
