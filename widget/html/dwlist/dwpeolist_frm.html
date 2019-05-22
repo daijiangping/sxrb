@@ -146,12 +146,16 @@
 
     var picallarr = []
     apiready = function () {
-
-        //显示加载中
-        showProgress()
-
         sql = api.pageParam.data.sql;
+        //显示加载中
+        if (sql == '') {
+            return;
+        }
+       // showProgress()
+
+
         consoledebug.log("传入sql:" + JSON.stringify(sql));
+
 
         var y = 0;
         var count = 100;
@@ -169,7 +173,6 @@
         })
 
 
-
         api.addEventListener({
             name: 'scrolltobottom',
             extra: {
@@ -178,7 +181,7 @@
         }, function (ret, err) {
             if (!loading_flag) {
                 //加载中提示
-                showProgress()
+              //  showProgress()
                 loading_flag = true;
                 var count = 100;
                 var num = rownum * count;
@@ -197,7 +200,6 @@
             }
         })
     };
-
 
 
     var newsObj_arr = [];
